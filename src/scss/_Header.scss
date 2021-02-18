@@ -1,0 +1,63 @@
+.header {
+  &__desktop {
+    display: flex;
+  }
+
+  &__mobile {
+    display: flex;
+    @include breakpoint-bigger-than(medium) {
+      display: none;
+    }
+  }
+
+  &__mobileLeft {
+    flex: 1;
+  }
+
+  &__mobileRight {
+    display: flex;
+  }
+
+  .hamburgerMenu {
+    cursor: pointer;
+    margin-left: 1rem;
+
+    > span {
+      display: block;
+      width: 30px;
+      height: 3px;
+      background-color: $darkBlack;
+
+      &:not(:last-child) {
+        margin-bottom: 5px;
+      }
+    }
+  }
+
+  &__desktopLeft {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    display: none;
+    @include breakpoint-bigger-than(medium) {
+      flex-direction: row;
+      display: flex;
+    }
+
+    ul {
+      display: flex;
+      flex-direction: column;
+
+      @include breakpoint-bigger-than(medium) {
+        flex-direction: row;
+      }
+    }
+  }
+
+  &__desktopRight {
+    display: none;
+    @include breakpoint-bigger-than(medium) {
+      display: flex;
+    }
+  }
+}

@@ -1,5 +1,7 @@
 //global
-@import "global";
+@import "Variables";
+@import "Global";
+@import "Mixins";
 
 // components styles
 @import "Header";
