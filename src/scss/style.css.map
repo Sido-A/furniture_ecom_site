@@ -1,0 +1,18 @@
+{
+    "version": 3,
+    "mappings": "ACAA,AAAA,CAAC;AACD,CAAC,AAAA,QAAQ;AACT,CAAC,AAAA,OAAO,CAAC;EACP,UAAU,EAAE,UAAU;CACvB;;AAED,AAAA,IAAI,CAAC;EACH,MAAM,EAAE,CAAC;EACT,WAAW,EAAE,mJAED;EACZ,sBAAsB,EAAE,WAAW;EACnC,uBAAuB,EAAE,SAAS;CACnC;;AAED,AAAA,IAAI,CAAC;EACH,WAAW,EAAE,mEACF;CACZ",
+    "sources": [
+        "style.scss",
+        "_global.scss",
+        "_Header.scss",
+        "_Search.scss",
+        "_BestMatch.scss",
+        "_Filter.scss",
+        "_Footer.scss",
+        "_TopSlider.scss",
+        "_Products.scss",
+        "_Product.scss"
+    ],
+    "names": [],
+    "file": "style.css"
+}
