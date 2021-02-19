@@ -42,9 +42,9 @@ function Header() {
         </div>
 
         <div className="header__mobileUnderlay">
-          <NavLink to="#">
+          <Link className="cart" to="#">
             <ShoppingCartIcon />
-          </NavLink>
+          </Link>
 
           <div
             onClick={mobileMenuToggle}
@@ -78,7 +78,7 @@ function Header() {
         </div>
 
         <div className="header__desktopRight">
-          <Link to="#">
+          <Link className="cart" to="#">
             <ShoppingCartIcon />
           </Link>
 
