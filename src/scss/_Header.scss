@@ -1,4 +1,12 @@
 .header {
+  margin-top: 2.75rem;
+  margin-bottom: 1.75rem;
+
+  @include breakpoint-bigger-than(medium) {
+    margin-top: 1.625rem;
+    margin-bottom: 4.25rem;
+  }
+
   &__container {
     position: relative;
   }
@@ -37,7 +45,7 @@
     // show Menus when close class is added
     &.close {
       visibility: visible;
-      padding: 0 1rem;
+      padding: 0 1.125rem;
     }
     //show X when close class is added
     .hamburgerMenu.close {
@@ -64,14 +72,12 @@
     }
 
     ul {
-      margin-top: 2rem;
+      margin-top: 3rem;
 
       li {
+        font-size: 1.125rem;
         &:not(:last-child) {
-          margin-bottom: 1em;
-        }
-        a {
-          color: #fff;
+          margin-bottom: 2.625rem;
         }
       }
     }
@@ -82,6 +88,10 @@
     display: flex;
     justify-content: flex-end;
     align-items: center;
+
+    .cart {
+      color: $mainBlack;
+    }
 
     // default 3 lines hamburger menu
     .hamburgerMenu {
@@ -109,6 +119,7 @@
     display: flex;
     flex-direction: column;
     flex: 1;
+    align-items: center;
     display: none;
 
     @include breakpoint-bigger-than(medium) {
@@ -119,19 +130,26 @@
     ul {
       display: flex;
       flex-direction: column;
-      margin-left: 1rem;
 
       @include breakpoint-bigger-than(medium) {
         flex-direction: row;
       }
 
       li {
-        &:not(:last-child) {
-          margin-right: 0.5em;
+        font-weight: 800;
+        text-transform: uppercase;
+
+        &:first-child {
+          margin-left: 2.925rem;
         }
 
-        a:hover {
-          color: $lightGreen;
+        &:not(:first-child) {
+          margin-left: 2.625rem;
+        }
+        a {
+          &:hover {
+            color: $lightGreen;
+          }
         }
       }
     }
@@ -139,12 +157,18 @@
 
   &__desktopRight {
     display: none;
+
+    a {
+      font-weight: 800;
+      text-transform: uppercase;
+    }
     @include breakpoint-bigger-than(medium) {
       display: flex;
+      align-items: center;
     }
 
     .login {
-      margin-left: 1em;
+      margin-left: 2.75rem;
     }
   }
 }
