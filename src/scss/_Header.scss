@@ -1,8 +1,26 @@
 .header {
-  &__desktop {
-    display: flex;
+  &__container {
+    position: relative;
   }
 
+  .overlay.open {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: #000;
+    visibility: visible;
+
+    @include breakpoint-bigger-than(medium) {
+      background-color: transparent;
+      height: 0;
+    }
+  }
+
+  //hide on desktop
   &__mobile {
     display: flex;
     @include breakpoint-bigger-than(medium) {
@@ -10,35 +28,89 @@
     }
   }
 
-  &__mobileLeft {
-    flex: 1;
-  }
+  //hide until hamburger is clicked
+  &__mobileOverlayMenu {
+    position: absolute;
+    width: 95%;
+    visibility: hidden;
 
-  &__mobileRight {
-    display: flex;
-  }
+    // show Menus when close class is added
+    &.close {
+      visibility: visible;
+      padding: 0 1rem;
+    }
+    //show X when close class is added
+    .hamburgerMenu.close {
+      position: absolute;
+      top: 15px;
+      right: 0;
+      visibility: visible;
+      padding: 0 1rem;
 
-  .hamburgerMenu {
-    cursor: pointer;
-    margin-left: 1rem;
+      > span {
+        transition: all 300ms ease-in-out;
+        transform-origin: 10px 2px;
+        background-color: #fff;
+      }
+      > span:first-child {
+        transform: rotate(40deg);
+      }
+      > span:nth-child(2) {
+        opacity: 0;
+      }
+      > span:last-child {
+        transform: rotate(-39deg);
+      }
+    }
 
-    > span {
-      display: block;
-      width: 30px;
-      height: 3px;
-      background-color: $darkBlack;
+    ul {
+      margin-top: 2rem;
 
-      &:not(:last-child) {
-        margin-bottom: 5px;
+      li {
+        &:not(:last-child) {
+          margin-bottom: 1em;
+        }
+        a {
+          color: #fff;
+        }
       }
     }
   }
 
+  &__mobileUnderlay {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    // default 3 lines hamburger menu
+    .hamburgerMenu {
+      > span {
+        background-color: $darkBlack;
+
+        &:not(:last-child) {
+          margin-bottom: 5px;
+        }
+      }
+    }
+  }
+
+  &__desktop {
+    display: none;
+
+    @include breakpoint-bigger-than(medium) {
+      flex-direction: row;
+      display: flex;
+    }
+  }
+
+  //hide on mobile
   &__desktopLeft {
     display: flex;
     flex-direction: column;
     flex: 1;
     display: none;
+
     @include breakpoint-bigger-than(medium) {
       flex-direction: row;
       display: flex;
@@ -47,9 +119,20 @@
     ul {
       display: flex;
       flex-direction: column;
+      margin-left: 1rem;
 
       @include breakpoint-bigger-than(medium) {
         flex-direction: row;
+      }
+
+      li {
+        &:not(:last-child) {
+          margin-right: 0.5em;
+        }
+
+        a:hover {
+          color: $lightGreen;
+        }
       }
     }
   }
@@ -58,6 +141,10 @@
     display: none;
     @include breakpoint-bigger-than(medium) {
       display: flex;
+    }
+
+    .login {
+      margin-left: 1em;
     }
   }
 }

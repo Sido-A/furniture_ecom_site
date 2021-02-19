@@ -1,0 +1,44 @@
+// .overlay {
+//   visibility: hidden;
+// }
+
+@keyframes open {
+  from {
+    visibility: hidden;
+    opacity: 0;
+  }
+  1% {
+    visibility: visible;
+    opacity: 0;
+  }
+
+  to {
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
+.open {
+  animation: open 300ms ease-in-out forwards;
+}
+
+@keyframes open {
+  from {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  99% {
+    visibility: visible;
+    opacity: 0;
+  }
+
+  to {
+    visibility: hidden;
+    opacity: 0;
+  }
+}
+
+.open {
+  animation: close 300ms ease-in-out forwards;
+}

@@ -19,6 +19,14 @@ code {
     monospace;
 }
 
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+  padding: 0;
+}
+
 ul {
   list-style: none;
   margin: 0;
@@ -28,10 +36,50 @@ ul {
 a {
   text-decoration: none;
   color: $darkBlack;
+  transition: color 200ms ease-in-out;
+
+  &:hover {
+    color: $lightGreen;
+  }
 }
 
 .container {
   max-width: 1024px;
   margin: 0 auto;
-  padding: 1rem;
+
+  &--pall {
+    padding: 1rem;
+  }
+
+  &--pt {
+    padding-top: 1rem;
+  }
+  &--pr {
+    padding-right: 1rem;
+  }
+  &--pb {
+    padding-bottom: 1rem;
+  }
+  &--pl {
+    padding-left: 1rem;
+  }
+  &--ptb {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+  &--prl {
+    padding-right: 1rem;
+    padding-left: 1rem;
+  }
+}
+
+.hamburgerMenu {
+  cursor: pointer;
+  margin-left: 1rem;
+
+  > span {
+    display: block;
+    width: 30px;
+    height: 3px;
+  }
 }

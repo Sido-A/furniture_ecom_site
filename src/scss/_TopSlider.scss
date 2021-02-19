@@ -1,0 +1,59 @@
+.topSlider {
+  position: relative;
+
+  .overlay {
+    position: relative;
+    filter: brightness(60%);
+    background-image: url("../Images/couch-mobile.svg");
+    background-size: 100% 100%;
+    background-position: top center;
+    background-repeat: no-repeat;
+    height: 22.125rem;
+    z-index: -100;
+
+    @include breakpoint-bigger-than(medium) {
+      background-image: url("../Images/sofa-184555_1920\ 1.svg");
+      background-size: 64rem 27.8125rem;
+      background-position: top center;
+      background-repeat: no-repeat;
+      height: 27.8125rem;
+      margin: 0 auto;
+    }
+  }
+
+  &__typography {
+    position: absolute;
+    top: 0;
+    z-index: -100;
+    padding-top: 2.5625rem;
+    padding-left: 2.3125rem;
+
+    @include breakpoint-bigger-than(medium) {
+      padding-top: 4rem;
+      padding-left: 5.75rem;
+    }
+
+    h1,
+    p {
+      color: #fff;
+    }
+
+    h1 {
+      font-size: 1.5rem;
+      @include breakpoint-bigger-than(medium) {
+        font-size: 3rem;
+      }
+    }
+
+    p {
+      font-size: 1.125rem;
+      width: 128px;
+      border-bottom: 1px solid #fff;
+
+      @include breakpoint-bigger-than(medium) {
+        font-size: 1.625rem;
+        width: 183px;
+      }
+    }
+  }
+}
