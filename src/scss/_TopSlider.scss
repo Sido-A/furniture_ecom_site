@@ -4,7 +4,7 @@
 
   .overlay {
     position: relative;
-    filter: brightness(60%);
+    filter: brightness(80%);
     background-image: url("../Images/couch-mobile.svg");
     background-size: 100% 100%;
     background-position: top center;
@@ -26,7 +26,7 @@
     position: absolute;
     top: 0;
     z-index: -100;
-    padding-top: 2.5625rem;
+    padding-top: 6.5625rem;
     padding-left: 2.3125rem;
 
     @include breakpoint-bigger-than(medium) {
