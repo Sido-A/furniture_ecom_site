@@ -2,6 +2,11 @@
   position: relative;
   z-index: -100;
 
+  @include breakpoint-bigger-than(large) {
+    border-bottom: 1px solid #c2c2c2;
+    padding-bottom: 6.59rem;
+  }
+
   .overlay {
     position: relative;
     filter: brightness(80%);
@@ -12,7 +17,7 @@
     height: 22.125rem;
     z-index: -100;
 
-    @include breakpoint-bigger-than(medium) {
+    @include breakpoint-bigger-than(large) {
       background-image: url("../Images/sofa-184555_1920\ 1.svg");
       background-size: 64rem 27.8125rem;
       background-position: top center;
@@ -29,7 +34,7 @@
     padding-top: 6.5625rem;
     padding-left: 2.3125rem;
 
-    @include breakpoint-bigger-than(medium) {
+    @include breakpoint-bigger-than(large) {
       padding-top: 4rem;
       padding-left: 5.75rem;
     }
@@ -41,7 +46,7 @@
 
     h1 {
       font-size: 1.5rem;
-      @include breakpoint-bigger-than(medium) {
+      @include breakpoint-bigger-than(large) {
         font-size: 3rem;
       }
     }
@@ -51,7 +56,7 @@
       width: 128px;
       border-bottom: 1px solid #fff;
 
-      @include breakpoint-bigger-than(medium) {
+      @include breakpoint-bigger-than(large) {
         font-size: 1.625rem;
         width: 183px;
       }
