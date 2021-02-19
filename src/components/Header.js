@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 import logo from "../Images/logo64.png";
 
@@ -78,13 +78,13 @@ function Header() {
         </div>
 
         <div className="header__desktopRight">
-          <NavLink to="#">
+          <Link to="#">
             <ShoppingCartIcon />
-          </NavLink>
+          </Link>
 
-          <NavLink className="login" to="#">
+          <Link className="login" to="#">
             Login
-          </NavLink>
+          </Link>
         </div>
       </div>
     </header>
