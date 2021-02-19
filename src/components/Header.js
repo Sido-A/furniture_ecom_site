@@ -1,15 +1,12 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
-import logo from "../Images/furniture16.png";
+import logo from "../Images/logo64.png";
 
 function Header() {
-  const body = document.querySelector("body");
-  const header = document.querySelector(".header");
-  const fadeElems = document.querySelectorAll(".has-fade");
   const [isOpen, setIsOpen] = useState(false);
 
-  const hasFadeHandler = () => {
+  const mobileMenuToggle = () => {
     setIsOpen(!isOpen);
     console.log("IsOpen?", isOpen);
   };
@@ -19,7 +16,7 @@ function Header() {
       <div className="header__mobile container--pall hide-for-desktop">
         <div className={`header__mobileOverlayMenu ${isOpen ? "close" : ""}`}>
           <div
-            onClick={hasFadeHandler}
+            onClick={mobileMenuToggle}
             id="hamburgerMenu"
             className={`hamburgerMenu ${isOpen ? "close" : ""}`}
           >
@@ -50,7 +47,7 @@ function Header() {
           </NavLink>
 
           <div
-            onClick={hasFadeHandler}
+            onClick={mobileMenuToggle}
             id="hamburgerMenu"
             className="hamburgerMenu default"
           >
@@ -61,8 +58,9 @@ function Header() {
         </div>
       </div>
 
-      <div className="header__desktop container container--pall hide-for-mobile">
+      <div className="header__desktop container hide-for-mobile">
         <div className="header__desktopLeft">
+          {/* <div>Icons made by <a href="https://www.flaticon.com/authors/linector" title="Linector">Linector</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div> */}
           <img src={`${logo}`} alt="logo" />
           <ul>
             <li>
