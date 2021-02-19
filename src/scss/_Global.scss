@@ -38,7 +38,7 @@ a {
   text-decoration: none;
   transition: color 200ms ease-in-out;
 
-  @include breakpoint-bigger-than(medium) {
+  @include breakpoint-bigger-than(large) {
     color: $mainBlack;
   }
 

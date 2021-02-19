@@ -2,7 +2,7 @@
   margin-top: 2.75rem;
   margin-bottom: 1.75rem;
 
-  @include breakpoint-bigger-than(medium) {
+  @include breakpoint-bigger-than(large) {
     margin-top: 1.625rem;
     margin-bottom: 4.25rem;
   }
@@ -22,7 +22,7 @@
     background-color: #000;
     visibility: visible;
 
-    @include breakpoint-bigger-than(medium) {
+    @include breakpoint-bigger-than(large) {
       background-color: transparent;
       height: 0;
     }
@@ -31,7 +31,7 @@
   //hide on desktop
   &__mobile {
     display: flex;
-    @include breakpoint-bigger-than(medium) {
+    @include breakpoint-bigger-than(large) {
       display: none;
     }
   }
@@ -108,7 +108,7 @@
   &__desktop {
     display: none;
 
-    @include breakpoint-bigger-than(medium) {
+    @include breakpoint-bigger-than(large) {
       flex-direction: row;
       display: flex;
     }
@@ -122,7 +122,7 @@
     align-items: center;
     display: none;
 
-    @include breakpoint-bigger-than(medium) {
+    @include breakpoint-bigger-than(large) {
       flex-direction: row;
       display: flex;
     }
@@ -131,7 +131,7 @@
       display: flex;
       flex-direction: column;
 
-      @include breakpoint-bigger-than(medium) {
+      @include breakpoint-bigger-than(large) {
         flex-direction: row;
       }
 
@@ -162,7 +162,7 @@
       font-weight: 800;
       text-transform: uppercase;
     }
-    @include breakpoint-bigger-than(medium) {
+    @include breakpoint-bigger-than(large) {
       display: flex;
       align-items: center;
     }
