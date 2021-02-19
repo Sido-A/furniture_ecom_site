@@ -34,9 +34,17 @@ ul {
 }
 
 a {
+  color: #fff;
   text-decoration: none;
-  color: $darkBlack;
   transition: color 200ms ease-in-out;
+
+  @include breakpoint-bigger-than(medium) {
+    color: $mainBlack;
+  }
+
+  &.active {
+    color: $lightGray;
+  }
 
   &:hover {
     color: $lightGreen;
