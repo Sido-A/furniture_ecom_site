@@ -33,6 +33,7 @@ ul {
   padding: 0;
 }
 
+//default link style (master mobile,so default color is white)
 a {
   color: #fff;
   text-decoration: none;
@@ -45,6 +46,15 @@ a {
   &.active {
     color: $lightGray;
   }
+
+  &:hover {
+    color: $lightGreen;
+  }
+}
+
+//Footer link
+.link a {
+  color: $mainBlack;
 
   &:hover {
     color: $lightGreen;
