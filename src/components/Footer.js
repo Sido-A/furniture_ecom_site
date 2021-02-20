@@ -8,7 +8,7 @@ function Footer() {
   return (
     <div className="footer">
       <div className="footer__flex container">
-        <div className="footer__sns">
+        <div className="footer__sns link">
           <a href="#">
             <i>
               <InstagramIcon />
