@@ -61,7 +61,7 @@ function Header() {
       <div className="header__desktop container hide-for-mobile">
         <div className="header__desktopLeft">
           {/* <div>Icons made by <a href="https://www.flaticon.com/authors/linector" title="Linector">Linector</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div> */}
-          <img src={`${logo}`} alt="logo" />
+          <img className="logo" src={`${logo}`} alt="logo" />
           <ul>
             <li>
               <NavLink exact to="/">

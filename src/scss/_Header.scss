@@ -109,6 +109,8 @@
     display: none;
 
     @include breakpoint-bigger-than(large) {
+      font-size: 0.8125rem;
+      font-weight: 700;
       flex-direction: row;
       display: flex;
     }
@@ -127,6 +129,10 @@
       display: flex;
     }
 
+    .logo {
+      width: 42px;
+    }
+
     ul {
       display: flex;
       flex-direction: column;
@@ -136,7 +142,6 @@
       }
 
       li {
-        font-weight: 800;
         text-transform: uppercase;
 
         &:first-child {
@@ -159,7 +164,6 @@
     display: none;
 
     a {
-      font-weight: 800;
       text-transform: uppercase;
     }
     @include breakpoint-bigger-than(large) {
