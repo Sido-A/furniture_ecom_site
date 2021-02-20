@@ -1,0 +1,72 @@
+.footer {
+  margin-bottom: 117px;
+  &__flex {
+    display: flex;
+    flex-direction: column;
+    @include breakpoint-bigger-than(large) {
+      order: 2;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
+  &__sns {
+    a {
+      display: inline-block;
+
+      @include breakpoint-bigger-than(large) {
+        &:first-child {
+          margin-left: 8rem;
+        }
+        &:not(:first-child) {
+          margin-left: 2.8125rem;
+        }
+      }
+    }
+    @include breakpoint-bigger-than(large) {
+      order: 2;
+    }
+
+    > i {
+      .MuiSvgIcon-root {
+        width: 1.4325rem;
+        height: 1.4325rem;
+      }
+    }
+  }
+
+  &__menu {
+    display: flex;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+
+  .link {
+    color: $mainBlack;
+
+    @include breakpoint-bigger-than(large) {
+      display: flex;
+      flex-direction: row;
+    }
+  }
+
+  &__links1 {
+    a {
+      @include breakpoint-bigger-than(large) {
+        &:not(:first-child) {
+          margin-left: 4.375rem;
+        }
+      }
+    }
+  }
+
+  &__links2 {
+    a {
+      @include breakpoint-bigger-than(large) {
+        margin-left: 4.375rem;
+      }
+    }
+  }
+}
