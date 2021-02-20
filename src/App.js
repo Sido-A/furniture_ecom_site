@@ -16,12 +16,14 @@ function App() {
           <Route path="/mag">
             <Header />
             <h1>Mag</h1>
+            <Footer />
           </Route>
 
           <Route path="/products">
             <Header />
             {/* <Filter /> */}
             <Products />
+            <Footer />
           </Route>
 
           <Route path="/">
