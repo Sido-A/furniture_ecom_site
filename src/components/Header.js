@@ -12,13 +12,15 @@ function Header() {
   };
   return (
     <header className="header">
-      <div className={`overlay ${isOpen ? "open" : ""}`}></div>
+      <div className={`overlay ${isOpen ? "open" : "close"}`}></div>
       <div className="header__mobile container--pall hide-for-desktop">
-        <div className={`header__mobileOverlayMenu ${isOpen ? "close" : ""}`}>
+        <div
+          className={`header__mobileOverlayMenu ${isOpen ? "open" : "close"}`}
+        >
           <div
             onClick={mobileMenuToggle}
             id="hamburgerMenu"
-            className={`hamburgerMenu ${isOpen ? "close" : ""}`}
+            className={`hamburgerMenu ${isOpen ? "open" : "close"}`}
           >
             {/* need to add open on click */}
             <span></span>
