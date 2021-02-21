@@ -3,7 +3,7 @@
   z-index: -100;
   margin-bottom: 5.01rem;
 
-  @include breakpoint-bigger-than(large) {
+  @include breakpoint-bigger-than(medium) {
     border-bottom: 1px solid #c2c2c2;
     padding-bottom: 6.59rem;
     margin-bottom: 3.8625rem;
