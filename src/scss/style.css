@@ -61,7 +61,7 @@ a:hover {
 }
 
 .container {
-  max-width: 1324px;
+  max-width: 1292px;
   margin: 0 auto;
 }
 
@@ -104,6 +104,31 @@ a:hover {
   display: block;
   width: 30px;
   height: 3px;
+}
+
+.applyField {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 327px;
+  font-size: 1.125rem;
+  padding-right: 0.3125rem;
+  padding-left: 0.3125rem;
+  padding-bottom: 0.6875rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 2px solid #97979766;
+  cursor: pointer;
+}
+
+.applyField .symbol {
+  font-weight: 600;
+  -webkit-transition: -webkit-transform 300ms ease-in-out;
+  transition: -webkit-transform 300ms ease-in-out;
+  transition: transform 300ms ease-in-out;
+  transition: transform 300ms ease-in-out, -webkit-transform 300ms ease-in-out;
 }
 
 .overlay.close {
@@ -426,7 +451,6 @@ a:hover {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin-bottom: 2rem;
 }
 
 @media (min-width: 64em) {
@@ -552,6 +576,139 @@ a:hover {
   margin-bottom: 1.5625rem;
 }
 
+.filters__overlay {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+@media (min-width: 64em) {
+  .filters__overlay {
+    display: none;
+  }
+}
+
+.filters__underlay {
+  visibility: hidden;
+  height: 0;
+}
+
+@media (min-width: 64em) {
+  .filters__underlay {
+    height: auto;
+    visibility: visible;
+  }
+}
+
+.filters__underlay--title {
+  color: #979797;
+  font-size: 0.8125rem;
+  text-transform: uppercase;
+  margin-bottom: 2.625rem;
+}
+
+.filters__underlay--priceRange-title {
+  width: 100%;
+  margin-bottom: 1.5625rem;
+}
+
+.filters__underlay--priceRange-sliders {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.filters__underlay--priceRange .slider {
+  -webkit-appearance: none;
+  width: 100%;
+  max-width: 300px;
+  height: 2px;
+  background: #97979766;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: 0.2s;
+  -webkit-transition: opacity 0.2s;
+  transition: opacity 0.2s;
+  cursor: pointer;
+}
+
+.filters__underlay--priceRange .slider:hover {
+  opacity: 1;
+}
+
+.filters__underlay--priceRange .slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border: #000;
+  border-radius: 50%;
+  background: #000;
+}
+
+.filters__underlay--priceRange .slider::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  border: #000;
+  border-radius: 50%;
+  background: #fff;
+}
+
+.filter {
+  margin-bottom: 1.6875rem;
+}
+
+@media (min-width: 64em) {
+  .filter__applyField {
+    border-bottom: 2px solid #97979766;
+    width: 300px;
+  }
+}
+
+.filter__applyField--symbol.open {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+
+.filter__inputContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 0.3125rem;
+}
+
+.filter__inputContainer input[type="checkbox"] {
+  margin-right: 0.375rem;
+}
+
+.filter__inputContainer.open {
+  visibility: visible;
+}
+
+.filter__inputContainer.close {
+  display: none;
+  visibility: hidden;
+  height: 0;
+  padding: 0;
+}
+
 .footer {
   margin-bottom: 117px;
 }
@@ -585,6 +742,7 @@ a:hover {
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
+    margin: 0 1rem;
   }
 }
 
@@ -820,6 +978,7 @@ a:hover {
 
 .product {
   position: relative;
+  z-index: -1;
   width: 300px;
   height: 346px;
   margin-bottom: 1.5625rem;
@@ -827,6 +986,12 @@ a:hover {
   border: 0px solid transparent;
   -webkit-transition: all 300ms ease-in-out;
   transition: all 300ms ease-in-out;
+}
+
+@media (min-width: 64em) {
+  .product {
+    z-index: 0;
+  }
 }
 
 .product:hover {
