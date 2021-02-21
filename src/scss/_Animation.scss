@@ -1,6 +1,7 @@
-// .overlay {
-//   visibility: hidden;
-// }
+.overlay.close {
+  visibility: hidden;
+  opacity: 0;
+}
 
 @keyframes open {
   from {
@@ -22,7 +23,7 @@
   animation: open 300ms ease-in-out forwards;
 }
 
-@keyframes open {
+@keyframes close {
   from {
     visibility: visible;
     opacity: 1;
@@ -39,6 +40,6 @@
   }
 }
 
-.open {
+.overlay.close {
   animation: close 300ms ease-in-out forwards;
 }
