@@ -1,9 +1,9 @@
 import React from "react";
 
-function Filter() {
+function Filters() {
   return (
     <aside className="filters">
-      <p>filter by</p>
+      <div>Filter by</div>
       <select>
         <option value="collection">Collection</option>
       </select>
@@ -33,4 +33,4 @@ function Filter() {
   );
 }
 
-export default Filter;
+export default Filters;

@@ -4,7 +4,7 @@ import "./App.css";
 import Header from "./components/Header";
 import Search from "./components/Search";
 import ProductsFilterContainer from "./components/ProductsFilterContainer";
-import Filter from "./components/Filter";
+import Filter from "./components/Filters";
 import TopSlider from "./components/TopSlider";
 import Products from "./components/Products";
 import Footer from "./components/Footer";

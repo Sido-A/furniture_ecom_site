@@ -1,11 +1,11 @@
 import React from "react";
 import Products from "./Products";
-import Filter from "./Filter";
+import Filters from "./Filters";
 
 function ProductsFilterContainer() {
   return (
     <div className="productsFilterContainer container">
-      <Filter />
+      <Filters />
       <Products />
     </div>
   );

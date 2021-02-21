@@ -9,10 +9,6 @@ function Products() {
       <div className="products__container">
         <Product />
         <Product />
-        <Product />
-        <Product />
-        <Product />
-        <Product />
       </div>
 
       <div className="products__pages">
