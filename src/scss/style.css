@@ -61,7 +61,7 @@ a:hover {
 }
 
 .container {
-  max-width: 1024px;
+  max-width: 1324px;
   margin: 0 auto;
 }
 
@@ -106,6 +106,11 @@ a:hover {
   height: 3px;
 }
 
+.overlay.close {
+  visibility: hidden;
+  opacity: 0;
+}
+
 @-webkit-keyframes open {
   from {
     visibility: hidden;
@@ -141,7 +146,7 @@ a:hover {
           animation: open 300ms ease-in-out forwards;
 }
 
-@keyframes open {
+@-webkit-keyframes close {
   from {
     visibility: visible;
     opacity: 1;
@@ -156,7 +161,22 @@ a:hover {
   }
 }
 
-.open {
+@keyframes close {
+  from {
+    visibility: visible;
+    opacity: 1;
+  }
+  99% {
+    visibility: visible;
+    opacity: 0;
+  }
+  to {
+    visibility: hidden;
+    opacity: 0;
+  }
+}
+
+.overlay.close {
   -webkit-animation: close 300ms ease-in-out forwards;
           animation: close 300ms ease-in-out forwards;
 }
@@ -214,12 +234,12 @@ a:hover {
   visibility: hidden;
 }
 
-.header__mobileOverlayMenu.close {
+.header__mobileOverlayMenu.open {
   visibility: visible;
   padding: 0 1.125rem;
 }
 
-.header__mobileOverlayMenu .hamburgerMenu.close {
+.header__mobileOverlayMenu .hamburgerMenu.open {
   position: absolute;
   top: 15px;
   right: 0;
@@ -227,7 +247,7 @@ a:hover {
   padding: 0 1rem;
 }
 
-.header__mobileOverlayMenu .hamburgerMenu.close > span {
+.header__mobileOverlayMenu .hamburgerMenu.open > span {
   -webkit-transition: all 300ms ease-in-out;
   transition: all 300ms ease-in-out;
   -webkit-transform-origin: 10px 2px;
@@ -235,16 +255,16 @@ a:hover {
   background-color: #fff;
 }
 
-.header__mobileOverlayMenu .hamburgerMenu.close > span:first-child {
+.header__mobileOverlayMenu .hamburgerMenu.open > span:first-child {
   -webkit-transform: rotate(40deg);
           transform: rotate(40deg);
 }
 
-.header__mobileOverlayMenu .hamburgerMenu.close > span:nth-child(2) {
+.header__mobileOverlayMenu .hamburgerMenu.open > span:nth-child(2) {
   opacity: 0;
 }
 
-.header__mobileOverlayMenu .hamburgerMenu.close > span:last-child {
+.header__mobileOverlayMenu .hamburgerMenu.open > span:last-child {
   -webkit-transform: rotate(-39deg);
           transform: rotate(-39deg);
 }
@@ -509,6 +529,27 @@ a:hover {
   }
 }
 
+.productsFilterContainer {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr;
+      grid-template-columns: 1fr;
+  place-items: center;
+  margin-bottom: 3.265rem;
+}
+
+@media (min-width: 64em) {
+  .productsFilterContainer {
+    -ms-grid-columns: 300px 1fr;
+        grid-template-columns: 300px 1fr;
+    place-items: unset;
+  }
+}
+
+.filters {
+  margin-bottom: 1.5625rem;
+}
+
 .footer {
   margin-bottom: 117px;
 }
@@ -646,7 +687,7 @@ a:hover {
   margin-bottom: 5.01rem;
 }
 
-@media (min-width: 64em) {
+@media (min-width: 40em) {
   .topSlider {
     border-bottom: 1px solid #c2c2c2;
     padding-bottom: 6.59rem;
@@ -718,5 +759,88 @@ a:hover {
     font-size: 1.625rem;
     width: 183px;
   }
+}
+
+.products {
+  display: -ms-grid;
+  display: grid;
+  margin-bottom: 4.25rem;
+}
+
+@media (min-width: 40em) {
+  .products {
+    -ms-grid-columns: (300px)[2];
+        grid-template-columns: repeat(2, 300px);
+    gap: 2.6875rem;
+  }
+}
+
+@media (min-width: 64em) {
+  .products {
+    -ms-grid-columns: (300px)[3];
+        grid-template-columns: repeat(3, 300px);
+    gap: 2.6875rem;
+    margin-left: 2.5rem;
+  }
+}
+
+.products____pages > a {
+  display: block;
+}
+
+.product {
+  position: relative;
+  width: 300px;
+  height: 346px;
+  margin-bottom: 1.5625rem;
+  cursor: pointer;
+  border: 0px solid transparent;
+  -webkit-transition: all 300ms ease-in-out;
+  transition: all 300ms ease-in-out;
+}
+
+.product:hover {
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
+  border: 1px solid #979797;
+}
+
+.product__image {
+  width: 100%;
+  height: 257px;
+  vertical-align: bottom;
+}
+
+.product__detailsLeft {
+  background-color: #fff;
+  position: absolute;
+  bottom: 0;
+  width: 191px;
+  height: 126px;
+}
+
+.product__detailsLeft-title {
+  padding-top: 2.0625rem;
+  padding-bottom: 0.3125rem;
+  font-size: 1rem;
+}
+
+.product__detailsLeft-type {
+  color: #979797;
+  text-transform: uppercase;
+  font-size: 0.6875rem;
+}
+
+.product__detailsRight {
+  background-color: transparent;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 70px;
+  text-align: right;
+}
+
+.product__detailsRight-price {
+  padding-bottom: 1.0625rem;
 }
 /*# sourceMappingURL=style.css.map */

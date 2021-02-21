@@ -3,7 +3,8 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "./App.css";
 import Header from "./components/Header";
 import Search from "./components/Search";
-import BestMatch from "./components/BestMatch";
+import ProductsFilterContainer from "./components/ProductsFilterContainer";
+import Filter from "./components/Filter";
 import TopSlider from "./components/TopSlider";
 import Products from "./components/Products";
 import Footer from "./components/Footer";
@@ -21,8 +22,10 @@ function App() {
 
           <Route path="/products">
             <Header />
-            {/* <Filter /> */}
-            <Products />
+            <Search />
+            {/* <Filter />
+            <Products /> */}
+            <ProductsFilterContainer />
             <Footer />
           </Route>
 
