@@ -4,9 +4,7 @@
   margin-bottom: 5.01rem;
 
   @include breakpoint-bigger-than(medium) {
-    border-bottom: 1px solid #c2c2c2;
-    padding-bottom: 6.59rem;
-    margin-bottom: 3.8625rem;
+    margin-bottom: 6.59rem;
   }
 
   .overlay {
@@ -21,10 +19,10 @@
 
     @include breakpoint-bigger-than(large) {
       background-image: url("../Images/sofa-184555_1920\ 1.svg");
-      background-size: 64rem 27.8125rem;
-      background-position: top center;
+      background-size: 82.875rem 35rem;
+      background-position: center center;
       background-repeat: no-repeat;
-      height: 27.8125rem;
+      height: 35rem;
       margin: 0 auto;
     }
   }
