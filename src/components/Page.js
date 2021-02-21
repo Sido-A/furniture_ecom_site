@@ -2,9 +2,9 @@ import React from "react";
 
 function Page({ pageNumber }) {
   return (
-    <div className="page" key={pageNumber}>
-      <p>{pageNumber}</p>
-    </div>
+    <a className="page" key={pageNumber}>
+      {pageNumber}
+    </a>
   );
 }
 
