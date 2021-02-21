@@ -42,13 +42,13 @@
     width: 95%;
     visibility: hidden;
 
-    // show Menus when close class is added
-    &.close {
+    // show Menus when open class is added
+    &.open {
       visibility: visible;
       padding: 0 1.125rem;
     }
-    //show X when close class is added
-    .hamburgerMenu.close {
+    //show X when open class is added
+    .hamburgerMenu.open {
       position: absolute;
       top: 15px;
       right: 0;
