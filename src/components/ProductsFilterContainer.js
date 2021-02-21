@@ -4,7 +4,7 @@ import Filters from "./Filters";
 
 function ProductsFilterContainer() {
   return (
-    <div className="productsFilterContainer container">
+    <div className="productsFilterContainer container container--prl">
       <Filters />
       <Products />
     </div>

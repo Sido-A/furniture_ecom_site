@@ -4,7 +4,7 @@ import SearchIcon from "@material-ui/icons/Search";
 
 function Search() {
   return (
-    <div className="sb container">
+    <div className="sb container container--prl">
       <div className="search ">
         <div className="search__field">
           <SearchIcon className="searchIcon" />

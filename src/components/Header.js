@@ -60,7 +60,7 @@ function Header() {
         </div>
       </div>
 
-      <div className="header__desktop container hide-for-mobile">
+      <div className="header__desktop container container--prl hide-for-mobile">
         <div className="header__desktopLeft">
           {/* <div>Icons made by <a href="https://www.flaticon.com/authors/linector" title="Linector">Linector</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div> */}
           <img className="logo" src={`${logo}`} alt="logo" />
