@@ -1,0 +1,17 @@
+.page {
+  display: block;
+  cursor: pointer;
+  padding: 0.75rem;
+  font-size: 0.8125rem;
+  color: $mainBlack;
+  transition: color 300ms, background-color 300ms;
+
+  &:not(:first-child) {
+    margin-left: 2.375rem;
+  }
+
+  &:hover {
+    background-color: $lightGreen;
+    color: #fff;
+  }
+}
