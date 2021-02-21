@@ -2,8 +2,10 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-bottom: 2rem;
 
   @include breakpoint-bigger-than(large) {
+    margin-bottom: 1.4375rem;
     flex-direction: row;
     align-items: baseline;
   }
@@ -12,6 +14,7 @@
     border-bottom: 2px solid $superLightGray;
     width: 329px;
     margin-bottom: 2rem;
+
     &__field {
       display: flex;
       align-items: center;
