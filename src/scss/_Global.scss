@@ -101,3 +101,21 @@ a {
     height: 3px;
   }
 }
+
+.applyField {
+  display: flex;
+  justify-content: space-between;
+  width: 327px;
+  font-size: 1.125rem;
+  padding-right: 0.3125rem;
+  padding-left: 0.3125rem;
+  padding-bottom: 0.6875rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 2px solid $superLightGray;
+  cursor: pointer;
+
+  .symbol {
+    font-weight: 600;
+    transition: transform 300ms ease-in-out;
+  }
+}
