@@ -1,21 +1,32 @@
 .products {
   display: grid;
-  margin-bottom: 4.25rem;
-
-  @include breakpoint-bigger-than(medium) {
-    grid-template-columns: repeat(2, 300px);
-    gap: 2.6875rem;
-  }
+  place-items: center;
 
   @include breakpoint-bigger-than(large) {
-    grid-template-columns: repeat(3, 300px);
-    gap: 2.6875rem;
     margin-left: 2.5rem;
   }
 
-  &____pages {
-    > a {
-      display: block;
+  &__container {
+    display: grid;
+    margin-bottom: 4.25rem;
+    @include breakpoint-bigger-than(medium) {
+      grid-template-columns: repeat(2, 300px);
+      gap: 2.6875rem;
+    }
+
+    @include breakpoint-bigger-than(large) {
+      grid-template-columns: repeat(3, 300px);
+      gap: 2.6875rem;
+    }
+  }
+
+  &__pages {
+    display: flex;
+    justify-content: center;
+    max-width: 300px;
+
+    @include breakpoint-bigger-than(large) {
+      max-width: 722px;
     }
   }
 }
