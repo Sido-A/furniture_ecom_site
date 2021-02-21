@@ -2,7 +2,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 2rem;
 
   @include breakpoint-bigger-than(large) {
     margin-bottom: 1.4375rem;
