@@ -1,8 +1,14 @@
 .footer {
   margin-bottom: 117px;
+
   &__flex {
     display: flex;
     flex-direction: column;
+
+    @include breakpoint-bigger-than(medium) {
+      border-top: 1px solid #c2c2c2;
+      padding-top: 3.8625rem;
+    }
     @include breakpoint-bigger-than(large) {
       order: 2;
       flex-direction: row;
