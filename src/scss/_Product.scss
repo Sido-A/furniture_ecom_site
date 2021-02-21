@@ -8,6 +8,10 @@
   border: 0px solid transparent;
   transition: all 300ms ease-in-out;
 
+  @include breakpoint-bigger-than(large) {
+    z-index: 0;
+  }
+
   &:hover {
     transform: scale(1.05);
     border: 1px solid $lightGray;
