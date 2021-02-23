@@ -561,13 +561,14 @@ a:hover {
   -ms-grid-columns: 1fr;
       grid-template-columns: 1fr;
   place-items: center;
-  margin-bottom: 3.265rem;
 }
 
 @media (min-width: 64em) {
   .productsFilterContainer {
     -ms-grid-columns: 300px 1fr;
         grid-template-columns: 300px 1fr;
+    -webkit-column-gap: 2rem;
+            column-gap: 2rem;
     place-items: unset;
   }
 }
@@ -1026,12 +1027,7 @@ a:hover {
   display: -ms-grid;
   display: grid;
   place-items: center;
-}
-
-@media (min-width: 64em) {
-  .products {
-    margin-left: 2rem;
-  }
+  margin-bottom: 3.265rem;
 }
 
 .products__container {
