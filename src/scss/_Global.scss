@@ -52,6 +52,11 @@ a {
   max-width: 1326px;
   margin: 0 auto;
 
+  @include breakpoint-smaller-than(medium) {
+    max-width: 686px;
+    margin: 0 auto;
+  }
+
   &--pall {
     padding: 1rem;
   }
