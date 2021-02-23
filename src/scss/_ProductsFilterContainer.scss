@@ -2,9 +2,10 @@
   display: grid;
   grid-template-columns: 1fr;
   place-items: center;
-  margin-bottom: 3.265rem;
+ 
   @include breakpoint-bigger-than(large) {
     grid-template-columns: 300px 1fr;
+    column-gap: 2rem;
     place-items: unset;
   }
 }
