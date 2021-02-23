@@ -38,7 +38,7 @@ function Header() {
               <NavLink to="/products">Shop</NavLink>
             </li>
             <li>
-              <NavLink to="/mag">Magazine</NavLink>
+              <NavLink to="/magazine">Magazine</NavLink>
             </li>
           </ul>
         </div>
@@ -74,7 +74,7 @@ function Header() {
               <NavLink to="/products">Shop</NavLink>
             </li>
             <li>
-              <NavLink to="/mag">Magazine</NavLink>
+              <NavLink to="/magazine">Magazine</NavLink>
             </li>
           </ul>
         </div>
