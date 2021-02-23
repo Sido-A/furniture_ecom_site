@@ -3,7 +3,7 @@
   place-items: center;
 
   @include breakpoint-bigger-than(large) {
-    margin-left: 2.5rem;
+    margin-left: 2rem;
   }
 
   &__container {
@@ -16,7 +16,7 @@
 
     @include breakpoint-bigger-than(large) {
       grid-template-columns: repeat(3, 300px);
-      gap: 2.6875rem;
+      gap: 2.0625rem;
     }
   }
 
