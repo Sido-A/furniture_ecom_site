@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 
 function Filter(props) {
-  const [toggler, setToggler] = useState(false);
+  const [typeToggler, setTypeToggler] = useState(false);
 
-  const { filterType, filterTypeName } = props;
+  const { filterType, filterTypeName, mobileFilterMenuToggler } = props;
 
   const filterToggle = (e) => {
-    setToggler(!toggler);
+    setTypeToggler(!typeToggler);
   };
 
   return (
@@ -15,13 +15,17 @@ function Filter(props) {
         <p className="filter__applyField--title">{filterTypeName}</p>
         <p
           className={`filter__applyField--symbol symbol ${
-            toggler ? "open" : "close"
-          }`}
+            typeToggler ? "open" : "close"
+          } ${!mobileFilterMenuToggler ? "mobileClose" : null}`}
         >
           v
         </p>
       </div>
-      <div className={`filter__inputContainer ${toggler ? "open" : "close"}`}>
+      <div
+        className={`filter__inputContainer ${typeToggler ? "open" : "close"} ${
+          !mobileFilterMenuToggler ? "mobileClose" : null
+        }`}
+      >
         {filterType?.map((filter) => (
           <label htmlFor={filter}>
             <input name={filter} id={filter} type="checkbox" />
