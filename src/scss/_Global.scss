@@ -35,26 +35,13 @@ ul {
 
 //default link style (master mobile,so default color is white)
 a {
-  color: #fff;
+  color: $mainBlack;
   text-decoration: none;
   transition: color 200ms ease-in-out;
-
-  @include breakpoint-bigger-than(large) {
-    color: $mainBlack;
-  }
 
   &.active {
     color: $lightGray;
   }
-
-  &:hover {
-    color: $lightGreen;
-  }
-}
-
-//Footer link
-.link a {
-  color: $mainBlack;
 
   &:hover {
     color: $lightGreen;
