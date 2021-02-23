@@ -79,6 +79,13 @@
         &:not(:last-child) {
           margin-bottom: 2.625rem;
         }
+
+        a {
+          color: #fff;
+          &:hover {
+            color: $lightGreen;
+          }
+        }
       }
     }
   }

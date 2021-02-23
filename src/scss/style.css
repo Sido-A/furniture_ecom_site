@@ -5,6 +5,21 @@
           box-sizing: border-box;
 }
 
+html {
+  -webkit-transition: color 300ms, background-color 300ms;
+  transition: color 300ms, background-color 300ms;
+}
+
+html[theme="dark-mode"] {
+  -webkit-filter: invert(1) hue-rotate(180deg);
+          filter: invert(1) hue-rotate(180deg);
+}
+
+html[theme="dark-mode"] img {
+  -webkit-filter: invert(1) hue-rotate(180deg);
+          filter: invert(1) hue-rotate(180deg);
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
@@ -32,16 +47,10 @@ ul {
 }
 
 a {
-  color: #fff;
+  color: #22232b;
   text-decoration: none;
   -webkit-transition: color 200ms ease-in-out;
   transition: color 200ms ease-in-out;
-}
-
-@media (min-width: 64em) {
-  a {
-    color: #22232b;
-  }
 }
 
 a.active {
@@ -49,14 +58,6 @@ a.active {
 }
 
 a:hover {
-  color: #00c98d;
-}
-
-.link a {
-  color: #22232b;
-}
-
-.link a:hover {
   color: #00c98d;
 }
 
@@ -304,6 +305,14 @@ a:hover {
 
 .header__mobileOverlayMenu ul li:not(:last-child) {
   margin-bottom: 2.625rem;
+}
+
+.header__mobileOverlayMenu ul li a {
+  color: #fff;
+}
+
+.header__mobileOverlayMenu ul li a:hover {
+  color: #00c98d;
 }
 
 .header__mobileUnderlay {
