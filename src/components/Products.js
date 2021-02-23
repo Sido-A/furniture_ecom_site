@@ -11,7 +11,7 @@ function Products() {
       .get()
       .then((snap) => {
         const data = snap.docs.map((doc) => ({
-          id: doc.uid,
+          id: doc.id,
           ...doc.data(),
         }));
         console.log(data);
