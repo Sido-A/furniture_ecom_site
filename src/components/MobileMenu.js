@@ -6,7 +6,7 @@ function MobileMenu({ mobileMenuToggle, isOpen }) {
   return (
     <>
       <div className={`overlay ${isOpen ? "open" : "close"}`}></div>
-      <div className="header__mobile container--pall hide-for-desktop">
+      <div className="header__mobile container container--pall hide-for-desktop">
         <div
           className={`header__mobileOverlayMenu ${isOpen ? "open" : "close"}`}
         >
