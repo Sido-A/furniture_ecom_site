@@ -1,10 +1,7 @@
 .products {
   display: grid;
   place-items: center;
-
-  @include breakpoint-bigger-than(large) {
-    margin-left: 2rem;
-  }
+  margin-bottom: 3.265rem;
 
   &__container {
     display: grid;
