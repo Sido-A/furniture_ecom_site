@@ -31,6 +31,7 @@
     padding: 0.3125rem;
 
     label {
+      text-transform: capitalize;
       cursor: pointer;
       &:not(:last-child) {
         margin-bottom: 1.0625rem;
