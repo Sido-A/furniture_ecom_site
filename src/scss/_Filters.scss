@@ -9,22 +9,6 @@
     @include breakpoint-bigger-than(large) {
       display: none;
     }
-
-    // .applyField {
-    //   display: flex;
-    //   justify-content: space-between;
-    //   width: 327px;
-    //   font-size: 1.125rem;
-    //   padding-right: 0.3125rem;
-    //   padding-left: 0.3125rem;
-    //   padding-bottom: 0.6875rem;
-    //   border-bottom: 2px solid $superLightGray;
-    //   cursor: pointer;
-
-    //   .symbol {
-    //     font-weight: 600;
-    //   }
-    // }
   }
 
   &__underlay {
@@ -36,11 +20,50 @@
       visibility: visible;
     }
 
+    &.open {
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: 999;
+      color: #fff;
+      background-color: $mainBlack;
+      height: 100vh;
+    }
+
+    &--container {
+      @include breakpoint-smaller-than(medium) {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+    }
+
     &--title {
-      color: $lightGray;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: #fff;
       font-size: 0.8125rem;
       text-transform: uppercase;
+      padding-left: 0.3125rem;
       margin-bottom: 2.625rem;
+
+      @include breakpoint-bigger-than(large) {
+        color: $lightGray;
+      }
+
+      .plus {
+        visibility: hidden;
+      }
+
+      .minus {
+        visibility: visible;
+        font-size: 1.5rem;
+        cursor: pointer;
+      }
     }
 
     &--priceRange {
@@ -56,13 +79,18 @@
         -webkit-appearance: none;
         width: 100%;
         max-width: 300px;
-        height: 2px;
-        background: $superLightGray;
+        height: 5px;
+        background: #fff;
         outline: none;
-        opacity: 0.7;
+        opacity: 0.95;
         -webkit-transition: 0.2s;
         transition: opacity 0.2s;
         cursor: pointer;
+
+        @include breakpoint-bigger-than(large) {
+          background: $superLightGray;
+        }
+
         &:hover {
           opacity: 1;
         }
@@ -72,17 +100,26 @@
           appearance: none;
           width: 16px;
           height: 16px;
-          border: #000;
+          border: 3px solid #000;
           border-radius: 50%;
-          background: #000;
+          background: #fff;
+
+          @include breakpoint-bigger-than(large) {
+            border: 2px solid #000;
+            background: #fff;
+          }
         }
 
         &::-moz-range-thumb {
           width: 16px;
           height: 16px;
-          border: #000;
+          border: 2px solid #000;
           border-radius: 50%;
           background: #fff;
+          @include breakpoint-smaller-than(large) {
+            border: 2px solid #000;
+            background: #fff;
+          }
         }
       }
     }

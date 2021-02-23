@@ -8,9 +8,19 @@
       width: 300px;
     }
 
+    &.close {
+      visibility: hidden !important ;
+    }
+
     &--symbol {
       &.open {
         transform: rotate(180deg);
+      }
+
+      @include breakpoint-smaller-than(medium) {
+        &.mobileClose {
+          visibility: hidden !important;
+        }
       }
     }
   }
@@ -40,6 +50,12 @@
       visibility: hidden;
       height: 0;
       padding: 0;
+    }
+
+    @include breakpoint-smaller-than(medium) {
+      &.mobileClose {
+        visibility: hidden !important;
+      }
     }
   }
 }
