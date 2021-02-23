@@ -1,10 +1,45 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import RemoveIcon from "@material-ui/icons/Remove";
 import Filter from "./Filter";
+import db from "../firebase";
 
 function Filters() {
   const [sliderValue, setSliderValue] = useState(0);
   const [mobileFilterMenuToggler, setMobileFilterMenuToggler] = useState(false);
+  const [furnitureData, setFurnitureData] = useState([]);
+
+  useEffect(() => {
+    db.collection("furnitures")
+      .get()
+      .then((snap) => {
+        const data = snap.docs.map((doc) => ({
+          id: doc.id,
+          ...doc.data(),
+        }));
+        console.log(data);
+        setFurnitureData(data);
+      });
+  }, []);
+
+  //colors == firebase "colors"
+  const productsColor = furnitureData.map((data) => {
+    return data.colors;
+  });
+
+  //category == firebase "type"
+  const productsCategory = furnitureData.map((data) => {
+    return data.type;
+  });
+
+  //collections == firebase "name"
+  const productsCollection = furnitureData.map((data) => {
+    return data.name;
+  });
+
+  const concatColors = Array.prototype.concat(...productsColor);
+  const colors = [...new Set(concatColors)];
+  const categories = [...new Set(productsCategory)];
+  const collections = [...new Set(productsCollection)];
 
   const sliderChangeHandler = (e) => {
     console.log(e.target.value);
@@ -15,13 +50,6 @@ function Filters() {
     setMobileFilterMenuToggler(!mobileFilterMenuToggler);
   };
 
-  //category == firebase "type"
-  const categories = ["sofa", "bed", "table"];
-  //colors == firebase "colors"
-  const colors = ["blue", "red", "green"];
-
-  //collections == firebase "name"
-  const collections = ["Alisonville", "Ceils"];
   return (
     <aside className="filters">
       <div className="filters__overlay">
