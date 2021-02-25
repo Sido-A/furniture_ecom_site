@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 
 function Product({ data }) {
+  // when product is clicked redirect to item detail page
+
   return (
     <Link
       to={`/magazine/${data.id}`}
