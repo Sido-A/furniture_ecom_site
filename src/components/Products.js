@@ -18,6 +18,13 @@ function Products() {
         setFurnitureData(data);
       });
   }, []);
+  //show products according to the filters
+  // use input:checked
+
+  //show product when search field is typed
+
+  //pagination limiting the view to per page
+
 
   const pagesArr = [1, 2, 3, 4, ">"];
   return (
