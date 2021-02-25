@@ -14,7 +14,7 @@
 
   &:hover {
     transform: scale(1.05);
-    border: 1px solid $lightGray;
+    border: 1px solid #97979733;
   }
 
   &__image {
@@ -31,6 +31,7 @@
     height: 126px;
 
     &-title {
+      text-transform: capitalize;
       padding-top: 2.0625rem;
       padding-bottom: 0.3125rem;
       font-size: 1rem;
