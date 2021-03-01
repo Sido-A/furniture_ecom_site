@@ -8,7 +8,8 @@ import { useStateValue } from "../StateProvider";
 function Filters() {
   const [sliderValue, setSliderValue] = useState(0);
   const [sliderMaxValue, setSliderMaxValue] = useState(5000);
-  const [mobileFilterMenuToggler, setMobileFilterMenuToggler] = useState(false);
+
+  const [isMobileFilterMenuOpen, setIsMobileFilterMenuOpen] = useState(false);
   const [furnitureData, setFurnitureData] = useState([]);
   const [change, setChange] = useState(false);
   const [checkedItems, setCheckedItems] = useState({
@@ -116,7 +117,8 @@ function Filters() {
   };
 
   const filterToggle = () => {
-    setMobileFilterMenuToggler(!mobileFilterMenuToggler);
+    // default value of isMobileFilterMenuOpen is 'false'
+    setIsMobileFilterMenuOpen(!isMobileFilterMenuOpen);
   };
 
   //Best match filter
@@ -135,17 +137,17 @@ function Filters() {
 
       <div
         className={`filters__underlay ${
-          mobileFilterMenuToggler ? "mobileOpen" : "mobileClose"
+          isMobileFilterMenuOpen ? "mobileOpen" : "mobileClose"
         }`}
       >
         <div className="filters__underlay--container">
           <div className="filters__underlay--title">
             <p>Filter by</p>
 
-            {mobileFilterMenuToggler ? (
+            {isMobileFilterMenuOpen ? (
               <RemoveIcon
                 onClick={filterToggle}
-                className={`${mobileFilterMenuToggler ? "minus" : "plus"} `}
+                className={`${isMobileFilterMenuOpen ? "minus" : "plus"} `}
               />
             ) : null}
           </div>
@@ -153,17 +155,17 @@ function Filters() {
           <Filter
             filterType={collections}
             filterTypeName="collection"
-            mobileFilterMenuToggler={mobileFilterMenuToggler}
+            isMobileFilterMenuOpen={isMobileFilterMenuOpen}
           />
           <Filter
             filterType={colors}
             filterTypeName="color"
-            mobileFilterMenuToggler={mobileFilterMenuToggler}
+            isMobileFilterMenuOpen={isMobileFilterMenuOpen}
           />
           <Filter
             filterType={categories}
             filterTypeName="category"
-            mobileFilterMenuToggler={mobileFilterMenuToggler}
+            isMobileFilterMenuOpen={isMobileFilterMenuOpen}
           />
 
           <PriceRange />

@@ -3,9 +3,9 @@ import React, { useState } from "react";
 function Filter(props) {
   const [typeToggler, setTypeToggler] = useState(false);
 
-  const { filterType, filterTypeName, mobileFilterMenuToggler } = props;
+  const { filterType, filterTypeName, isMobileFilterMenuOpen } = props;
 
-  const filterToggle = (e) => {
+  const filterToggle = () => {
     setTypeToggler(!typeToggler);
   };
 
@@ -15,16 +15,16 @@ function Filter(props) {
         <p className="filter__applyField--title">{filterTypeName}</p>
         <p
           className={`filter__applyField--symbol symbol ${
-            typeToggler ? "open" : "close"
-          } ${!mobileFilterMenuToggler ? "mobileClose" : null}`}
+            typeToggler ? "openFilter" : "closeFilter"
+          } ${isMobileFilterMenuOpen ? "" : "mobileClose"}`}
         >
           v
         </p>
       </div>
       <div
-        className={`filter__inputContainer ${typeToggler ? "open" : "close"} ${
-          !mobileFilterMenuToggler ? "mobileClose" : null
-        }`}
+        className={`filter__inputContainer ${
+          typeToggler ? "openFilter" : "closeFilter"
+        } ${isMobileFilterMenuOpen ? "" : "mobileClose"}`}
       >
         {filterType?.map((filter) => (
           <label htmlFor={filter}>
