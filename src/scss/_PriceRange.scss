@@ -40,7 +40,7 @@
   .slider {
     -webkit-appearance: none;
     max-width: 300px;
-    height: 5px;
+    height: 1px;
     background: #fff;
     outline: none;
     opacity: 0.95;
@@ -49,6 +49,7 @@
     cursor: pointer;
 
     @include breakpoint-bigger-than(large) {
+      height: 5px;
       background: $superLightGray;
     }
 
