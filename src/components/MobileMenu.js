@@ -23,15 +23,19 @@ function MobileMenu({ mobileMenuToggle, isOpen }) {
 
           <ul>
             <li>
-              <NavLink exact to="/">
+              <NavLink exact to="/" onClick={mobileMenuToggle}>
                 Home
               </NavLink>
             </li>
             <li>
-              <NavLink to="/products">Shop</NavLink>
+              <NavLink to="/products" onClick={mobileMenuToggle}>
+                Shop
+              </NavLink>
             </li>
             <li>
-              <NavLink to="/magazine">Magazine</NavLink>
+              <NavLink to="/magazine" onClick={mobileMenuToggle}>
+                Magazine
+              </NavLink>
             </li>
           </ul>
         </div>
