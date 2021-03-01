@@ -11,6 +11,9 @@
     // &.close {
     //   visibility: hidden !important ;
     // }
+    &--title {
+      text-transform: capitalize;
+    }
 
     &--symbol {
       &.openFilter {
