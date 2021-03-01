@@ -39,13 +39,14 @@
   //hide until hamburger is clicked
   &__mobileOverlayMenu {
     position: absolute;
+    left: 0;
     width: 95%;
     visibility: hidden;
 
     // show Menus when open class is added
     &.open {
       visibility: visible;
-      padding: 0 1.125rem;
+      padding-left: 1.125rem;
     }
     //show X when open class is added
     .hamburgerMenu.open {
