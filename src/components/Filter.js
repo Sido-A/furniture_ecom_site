@@ -28,7 +28,12 @@ function Filter(props) {
       >
         {filterType?.map((filter) => (
           <label htmlFor={filter}>
-            <input name={filter} id={filter} type="checkbox" />
+            <input
+              data-filter-type={filterTypeName}
+              name={filter}
+              id={filter}
+              type="checkbox"
+            />
             {filter}
           </label>
         ))}
