@@ -1,8 +1,13 @@
 import React from "react";
 
-function Page({ pageNumber }) {
+function Page({ pageNumber, handlePageClick }) {
   return (
-    <a className="page" key={pageNumber}>
+    <a
+      className="page"
+      data-page-number={pageNumber}
+      key={pageNumber}
+      onClick={handlePageClick}
+    >
       {pageNumber}
     </a>
   );
