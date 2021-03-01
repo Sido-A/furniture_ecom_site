@@ -8,12 +8,12 @@
       width: 300px;
     }
 
-    &.close {
-      visibility: hidden !important ;
-    }
+    // &.close {
+    //   visibility: hidden !important ;
+    // }
 
     &--symbol {
-      &.open {
+      &.openFilter {
         transform: rotate(180deg);
       }
 
@@ -42,11 +42,11 @@
       margin-right: 0.375rem;
     }
 
-    &.open {
+    &.openFilter {
       visibility: visible;
     }
 
-    &.close {
+    &.closeFilter {
       display: none;
       visibility: hidden;
       height: 0;
