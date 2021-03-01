@@ -9,17 +9,24 @@ import ProductsFilterContainer from "./components/ProductsFilterContainer";
 import Products from "./components/Products";
 import TopSlider from "./components/TopSlider";
 import Footer from "./components/Footer";
+import { useStateValue } from "./StateProvider";
 
 function App() {
-  const [furnitureData, setFurnitureData] = useState([]);
+  const [{}, dispatch] = useStateValue();
 
   useEffect(() => {
     db.collection("furnitures")
       .get()
       .then((snap) => {
-        const data = snap.docs.map((doc) => doc.data());
+        const data = snap.docs.map((doc) => ({
+          id: doc.id,
+          ...doc.data(),
+        }));
 
-        setFurnitureData(data);
+        dispatch({
+          type: "ADD_PRODUCTS",
+          products: data,
+        });
       });
   }, []);
 
