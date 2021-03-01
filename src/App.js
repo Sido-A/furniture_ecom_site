@@ -12,24 +12,6 @@ import Footer from "./components/Footer";
 import { useStateValue } from "./StateProvider";
 
 function App() {
-  const [{}, dispatch] = useStateValue();
-
-  useEffect(() => {
-    db.collection("furnitures")
-      .get()
-      .then((snap) => {
-        const data = snap.docs.map((doc) => ({
-          id: doc.id,
-          ...doc.data(),
-        }));
-
-        dispatch({
-          type: "ADD_PRODUCTS",
-          products: data,
-        });
-      });
-  }, []);
-
   return (
     <Router>
       <div className="app">
