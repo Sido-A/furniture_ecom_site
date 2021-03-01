@@ -2,42 +2,48 @@ import React, { useState, useEffect } from "react";
 import Product from "./Product";
 import Page from "./Page";
 import db from "../firebase";
+import { useStateValue } from "../StateProvider";
 
 function Products() {
-  const [furnitureData, setFurnitureData] = useState([]);
+  const [{ products }, dispatch] = useStateValue();
+  const [currentPage, setCurrentPage] = useState(1);
+  const [contentPerPage, setContentPerPage] = useState(6);
+  const indexOfLastContent = currentPage * contentPerPage;
+  const indexOfFirstContent = indexOfLastContent - contentPerPage;
 
-  useEffect(() => {
-    db.collection("furnitures")
-      .get()
-      .then((snap) => {
-        const data = snap.docs.map((doc) => ({
-          id: doc.id,
-          ...doc.data(),
-        }));
-        console.log(data);
-        setFurnitureData(data);
-      });
-  }, []);
-  //show products according to the filters
-  // use input:checked
+  const currentPageContents = products.slice(
+    indexOfFirstContent,
+    indexOfLastContent
+  );
+
+  const handlePageClick = (e) => {
+    const selectedPageNumber = parseInt(
+      e.target.getAttribute("data-page-number")
+    );
+    setCurrentPage(selectedPageNumber);
+  };
+
+  const pageNumbers = [];
+  for (let i = 1; i <= Math.ceil(products.length / contentPerPage); i++) {
+    pageNumbers.push(i);
+  }
+
+  // console.log("products from useStateValue", products);
 
   //show product when search field is typed
+  //
 
-  //pagination limiting the view to per page
-
-
-  const pagesArr = [1, 2, 3, 4, ">"];
   return (
     <div className="products">
       <div className="products__container">
-        {furnitureData.map((data) => (
+        {currentPageContents.map((data) => (
           <Product data={data} />
         ))}
       </div>
 
       <div className="products__pages">
-        {pagesArr.map((page) => (
-          <Page pageNumber={page} />
+        {pageNumbers.map((page) => (
+          <Page pageNumber={page} handlePageClick={handlePageClick} />
         ))}
       </div>
     </div>
