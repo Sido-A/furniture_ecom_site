@@ -9,6 +9,7 @@
     @include breakpoint-bigger-than(medium) {
       grid-template-columns: repeat(2, 300px);
       gap: 2.6875rem;
+      min-height: 80vh;
     }
 
     @include breakpoint-bigger-than(large) {
