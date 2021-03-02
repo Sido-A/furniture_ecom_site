@@ -1,3 +1,5 @@
+import Product from "./components/Product";
+
 export const initialState = {
   basket: [],
   user: null,
@@ -22,8 +24,6 @@ const reducer = (state, action) => {
               : 1
             : 0
         );
-
-        console.log(alphaSort);
         sortPreference = alphaSort;
       } else if (action.selectedPreference.match("priceLowHigh")) {
         const lowToHigh = state.products.sort((productA, productB) => {
@@ -42,13 +42,12 @@ const reducer = (state, action) => {
       };
 
     case "ADD_FILTER":
-      console.log("ADD_FILTER");
       const { checkedItems, products } = action;
 
       const cloneProducts = [...products];
       let localProducts = [];
 
-      const testProducts = cloneProducts
+      const filteredProducts = cloneProducts
         .map((product) => {
           //check if 'collection' has been ticked
           if (checkedItems.collection.length !== 0) {
@@ -69,10 +68,14 @@ const reducer = (state, action) => {
                             i++
                           ) {
                             if (product.type === checkedItems.category[i]) {
-                              // return 'collection', 'color', 'category'
-                              //**all matched**
-
-                              return product;
+                              if (
+                                product.price > action["min-price"] &&
+                                product.price < action["max-price"]
+                              ) {
+                                // return 'collection', 'color', 'category'
+                                //**all matched**
+                                return product;
+                              }
                             }
                           }
                         } else {
@@ -92,8 +95,12 @@ const reducer = (state, action) => {
                             if (product.type === checkedItems.category[i]) {
                               // return 'collection' and 'category' that matches
                               // no color **matched**
-
-                              return product;
+                              if (
+                                product.price > action["min-price"] &&
+                                product.price < action["max-price"]
+                              ) {
+                                return product;
+                              }
                             } else {
                               // "Zero match"
                               return;
@@ -114,7 +121,12 @@ const reducer = (state, action) => {
                       if (product.type === checkedItems.category[i]) {
                         // return collection, category matched
                         // no color chosen by the user
-                        return product;
+                        if (
+                          product.price > action["min-price"] &&
+                          product.price < action["max-price"]
+                        ) {
+                          return product;
+                        }
                       } else {
                         // "Zero match"
                         return;
@@ -123,14 +135,22 @@ const reducer = (state, action) => {
                   } else {
                     // return 'collection' **matched**
                     // no tick on color **category un-matched**
-
-                    return product;
+                    if (
+                      product.price > action["min-price"] &&
+                      product.price < action["max-price"]
+                    ) {
+                      return product;
+                    }
                   }
                 }
                 // if no other check list aren't checked
                 // return 'collection' matched product
-
-                return product;
+                if (
+                  product.price > action["min-price"] &&
+                  product.price < action["max-price"]
+                ) {
+                  return product;
+                }
               }
             }
             //if collection.length is 0, check if any color are checked
@@ -141,13 +161,22 @@ const reducer = (state, action) => {
                   if (checkedItems.category.length !== 0) {
                     for (let i = 0; i < checkedItems.category.length; i++) {
                       if (product.type === checkedItems.category[i]) {
-                        return product;
+                        if (
+                          product.price > action["min-price"] &&
+                          product.price < action["max-price"]
+                        ) {
+                          return product;
+                        }
                       }
                     }
                   } else {
                     // return color matched only if no category checked
-
-                    return product;
+                    if (
+                      product.price > action["min-price"] &&
+                      product.price < action["max-price"]
+                    ) {
+                      return product;
+                    }
                   }
                 }
               }
@@ -155,17 +184,27 @@ const reducer = (state, action) => {
           } else if (checkedItems.category.length !== 0) {
             for (let i = 0; i < checkedItems.category.length; i++) {
               if (product.type === checkedItems.category[i]) {
-                return product;
+                if (
+                  product.price > action["min-price"] &&
+                  product.price < action["max-price"]
+                ) {
+                  return product;
+                }
               }
             }
           } else {
             // "No match"
-            return;
+            if (
+              product.price > action["min-price"] &&
+              product.price < action["max-price"]
+            ) {
+              return product;
+            }
           }
         })
         .filter(Boolean);
 
-      localProducts = Object.assign([], testProducts);
+      localProducts = Object.assign([], filteredProducts);
 
       return {
         ...state,
@@ -173,9 +212,31 @@ const reducer = (state, action) => {
       };
 
     case "REMOVE_FILTER":
+      // action.products hold data from firebase
+      const currentProducts = action.products;
+      let filterRemoved = [];
+
+      const priceRangeFilter = currentProducts
+        .filter((product) => {
+          if (
+            product.price > action["min-price"] &&
+            product.price < action["max-price"]
+          ) {
+            return product;
+          }
+        })
+        .sort((productA, productB) =>
+          productA.name !== productB.name
+            ? productA.name < productB.name
+              ? -1
+              : 1
+            : 0
+        );
+
+      filterRemoved = priceRangeFilter;
       return {
         ...state,
-        products: action.products,
+        products: filterRemoved,
       };
 
     default:
