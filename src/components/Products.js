@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Product from "./Product";
 import Page from "./Page";
-import db from "../firebase";
 import { useStateValue } from "../StateProvider";
 
 function Products() {
@@ -27,11 +26,6 @@ function Products() {
   for (let i = 1; i <= Math.ceil(products.length / contentPerPage); i++) {
     pageNumbers.push(i);
   }
-
-  // console.log("products from useStateValue", products);
-
-  //show product when search field is typed
-  //
 
   return (
     <div className="products">
