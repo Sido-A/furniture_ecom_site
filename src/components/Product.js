@@ -1,17 +1,33 @@
 import React from "react";
-import { Link } from "react-router-dom";
-
-import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
+import { Link, useHistory } from "react-router-dom";
+import cartButton from "../Images/cartButton.png";
+import { useStateValue } from "../StateProvider";
 
 function Product({ data }) {
+  const [{}, dispatch] = useStateValue();
   // when product is clicked redirect to item detail page
+  const history = useHistory();
+
+  const toProductDetailOrAddToCart = (e) => {
+    if (e.target.name === "cart") {
+      console.log("add to cart");
+      console.log(data);
+      dispatch({
+        type: "ADD_TO_CART",
+        selectedProduct: data,
+      });
+    } else {
+      history.push(`/magazine/${data.id}`);
+      console.log("REDIRECT TO DETAIL");
+    }
+  };
 
   return (
     <Link
-      to={`/magazine/${data.id}`}
       className="product"
       key={`${data.id}`}
       id={`${data.id}`}
+      onClick={toProductDetailOrAddToCart}
     >
       <img className="product__image" src={`${data.image}`} />
       <div className="product__detailsLeft">
@@ -20,7 +36,7 @@ function Product({ data }) {
       </div>
       <div className="product__detailsRight">
         <p className="product__detailsRight-price">£{data.price}</p>
-        <ShoppingCartIcon />
+        <img src={`${cartButton}`} alt="Add to cart button" name="cart" />
       </div>
     </Link>
   );

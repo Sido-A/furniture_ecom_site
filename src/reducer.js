@@ -12,6 +12,11 @@ const reducer = (state, action) => {
         products: action.products,
       };
 
+    case "ADD_TO_CART":
+      return {
+        ...state,
+        cart: [...state.cart, action.selectedProduct],
+      };
     case "PREFERENCE":
       let sortPreference = [];
       if (action.selectedPreference.match("bestMatch")) {
