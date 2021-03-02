@@ -1,7 +1,5 @@
-import Product from "./components/Product";
-
 export const initialState = {
-  basket: [],
+  cart: [],
   user: null,
   products: [],
 };
@@ -37,7 +35,7 @@ const reducer = (state, action) => {
         sortPreference = highToLow;
       }
       return {
-        state,
+        ...state,
         products: sortPreference,
       };
 
