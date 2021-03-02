@@ -1,17 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 
-function PriceRange() {
-  const [sliderMinValue, setSliderMinValue] = useState(0);
-  const [sliderMaxValue, setSliderMaxValue] = useState(5000);
-
-  const sliderChangeHandler = (e) => {
-    if (e.target.name === "min-price") {
-      setSliderMinValue(parseInt(e.target.value));
-    } else {
-      setSliderMaxValue(parseInt(e.target.value));
-    }
-  };
-
+function PriceRange({ sliderChangeHandler, sliderMinValue, sliderMaxValue }) {
   return (
     <div className="priceRange">
       <p className="priceRange__title">Price Range</p>
@@ -41,7 +30,7 @@ function PriceRange() {
             type="range"
             name="max-price"
             min="501"
-            max="1000"
+            max="5000"
             value={sliderMaxValue}
             id="max-price"
           />
