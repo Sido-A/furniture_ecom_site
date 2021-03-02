@@ -21,6 +21,7 @@
     height: 100vh;
     background-color: #000;
     visibility: visible;
+    z-index: 1;
 
     @include breakpoint-bigger-than(large) {
       background-color: transparent;
@@ -42,6 +43,7 @@
     left: 0;
     width: 95%;
     visibility: hidden;
+    z-index: 1;
 
     // show Menus when open class is added
     &.open {
