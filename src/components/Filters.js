@@ -5,20 +5,19 @@ import PriceRange from "./PriceRange";
 import db from "../firebase";
 import { useStateValue } from "../StateProvider";
 
-function Filters() {
-  const [sliderValue, setSliderValue] = useState(0);
-  const [sliderMaxValue, setSliderMaxValue] = useState(5000);
-
-  const [isMobileFilterMenuOpen, setIsMobileFilterMenuOpen] = useState(false);
+function Filters({ changeDetector }) {
   const [furnitureData, setFurnitureData] = useState([]);
-  const [change, setChange] = useState(false);
+  const [{}, dispatch] = useStateValue();
+  const [sliderMinValue, setSliderMinValue] = useState(0);
+  const [sliderMaxValue, setSliderMaxValue] = useState(5000);
+  const [isMobileFilterMenuOpen, setIsMobileFilterMenuOpen] = useState(false);
   const [checkedItems, setCheckedItems] = useState({
     collection: [],
     color: [],
     category: [],
   });
-  const [{}, dispatch] = useStateValue();
 
+  // set date for first load
   useEffect(() => {
     db.collection("furnitures")
       .get()
@@ -31,6 +30,7 @@ function Filters() {
       });
   }, []);
 
+  // set data each time checkbox or price range changes
   useEffect(() => {
     db.collection("furnitures")
       .get()
@@ -53,38 +53,58 @@ function Filters() {
         dispatch({
           type: "REMOVE_FILTER",
           products: data,
+          "min-price": sliderMinValue,
+          "max-price": sliderMaxValue,
         });
       } else {
         dispatch({
           type: "ADD_FILTER",
           checkedItems,
           products: furnitureData,
+          "min-price": sliderMinValue,
+          "max-price": sliderMaxValue,
         });
       }
     };
-  }, [checkedItems]);
+    changeDetector();
+  }, [checkedItems, sliderMinValue, sliderMaxValue]);
 
-  const changeDetector = (e) => {
+  //
+  const checkedItem = (e) => {
     const filterType = e.target.getAttribute("data-filter-type");
 
     if (e.target.checked === true) {
-      setChange(true);
-
-      setCheckedItems({
-        ...checkedItems,
-        [filterType]: [...checkedItems[filterType], e.target.name],
-      });
+      if (e.target.type === "checkbox") {
+        setCheckedItems({
+          ...checkedItems,
+          [filterType]: [...checkedItems[filterType], e.target.name],
+        });
+      }
     } else {
-      const unTick = checkedItems[filterType].filter((item) =>
-        item !== e.target.name ? item : null
-      );
-      setChange(false);
+      if (e.target.type === "checkbox") {
+        const unTick = checkedItems[filterType].filter((item) =>
+          item !== e.target.name ? item : null
+        );
 
-      setCheckedItems({
-        ...checkedItems,
-        [filterType]: unTick,
-      });
+        setCheckedItems({
+          ...checkedItems,
+          [filterType]: unTick,
+        });
+      }
     }
+  };
+
+  const sliderChangeHandler = (e) => {
+    if (e.target.name === "min-price") {
+      setSliderMinValue(parseInt(e.target.value));
+    } else {
+      setSliderMaxValue(parseInt(e.target.value));
+    }
+  };
+
+  const filterToggle = () => {
+    // default value of isMobileFilterMenuOpen is 'false'
+    setIsMobileFilterMenuOpen(!isMobileFilterMenuOpen);
   };
 
   //colors == firebase "colors"
@@ -108,26 +128,8 @@ function Filters() {
   const categories = [...new Set(productsCategory)];
   const collections = [...new Set(productsCollection)];
 
-  const sliderChangeHandler = (e) => {
-    if (e.target.name === "min-price") {
-      setSliderValue(parseInt(e.target.value));
-    } else {
-      setSliderMaxValue(parseInt(e.target.value));
-    }
-  };
-
-  const filterToggle = () => {
-    // default value of isMobileFilterMenuOpen is 'false'
-    setIsMobileFilterMenuOpen(!isMobileFilterMenuOpen);
-  };
-
-  //Best match filter
-  //==>alphabet order
-  //==>price low -> high
-  //==>price high -> low
-
   return (
-    <aside className="filters" onChange={changeDetector}>
+    <aside className="filters" onChange={checkedItem}>
       <div className="filters__overlay">
         <div onClick={filterToggle} className={`applyField `}>
           <p className="title">Filters</p>
@@ -168,7 +170,11 @@ function Filters() {
             isMobileFilterMenuOpen={isMobileFilterMenuOpen}
           />
 
-          <PriceRange />
+          <PriceRange
+            sliderChangeHandler={sliderChangeHandler}
+            sliderMinValue={sliderMinValue}
+            sliderMaxValue={sliderMaxValue}
+          />
         </div>
       </div>
     </aside>
