@@ -31,6 +31,11 @@ ul {
   padding: 0;
 }
 
+select,
+option {
+  -webkit-appearance: none;
+}
+
 a {
   color: #22232b;
   text-decoration: none;
@@ -225,6 +230,7 @@ a:hover {
   height: 100vh;
   background-color: #000;
   visibility: visible;
+  z-index: 1;
 }
 
 @media (min-width: 64em) {
@@ -251,6 +257,7 @@ a:hover {
   left: 0;
   width: 95%;
   visibility: hidden;
+  z-index: 1;
 }
 
 .header__mobileOverlayMenu.open {
@@ -518,6 +525,10 @@ a:hover {
   outline: none;
 }
 
+.bestMatch {
+  cursor: pointer;
+}
+
 @media (max-width: 63.9375em) {
   .bestMatch {
     margin-bottom: 1.75rem;
@@ -532,6 +543,7 @@ a:hover {
 }
 
 .bestMatch__selectField {
+  position: relative;
   width: 327px;
   border-bottom: 2px solid #97979766;
 }
@@ -540,6 +552,18 @@ a:hover {
   .bestMatch__selectField {
     width: 298px;
   }
+}
+
+.bestMatch__selectField::after {
+  content: "+";
+  color: #000;
+  right: 5px;
+  top: 4px;
+  height: 26px;
+  position: absolute;
+  pointer-events: none;
+  font-weight: 600;
+  font-size: 1.125rem;
 }
 
 .bestMatch__selectField select {
@@ -690,6 +714,10 @@ a:hover {
   }
 }
 
+.filter__applyField--title {
+  text-transform: capitalize;
+}
+
 .filter__applyField--symbol.openFilter {
   -webkit-transform: rotate(180deg);
           transform: rotate(180deg);
@@ -790,7 +818,7 @@ a:hover {
 .priceRange .slider {
   -webkit-appearance: none;
   max-width: 300px;
-  height: 5px;
+  height: 1px;
   background: #fff;
   outline: none;
   opacity: 0.95;
@@ -802,6 +830,7 @@ a:hover {
 
 @media (min-width: 64em) {
   .priceRange .slider {
+    height: 5px;
     background: #97979766;
   }
 }
@@ -1107,7 +1136,7 @@ a:hover {
 
 .product {
   position: relative;
-  z-index: -1;
+  z-index: 0;
   width: 300px;
   height: 346px;
   margin-bottom: 1.5625rem;
@@ -1115,12 +1144,6 @@ a:hover {
   border: 0px solid transparent;
   -webkit-transition: all 300ms ease-in-out;
   transition: all 300ms ease-in-out;
-}
-
-@media (min-width: 64em) {
-  .product {
-    z-index: 0;
-  }
 }
 
 .product:hover {
