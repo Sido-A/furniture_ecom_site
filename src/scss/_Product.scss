@@ -51,5 +51,13 @@
     &-price {
       padding-bottom: 1.0625rem;
     }
+
+    > img {
+      transition: transform 250ms ease-in-out;
+
+      &:hover {
+        transform: scale(1.3);
+      }
+    }
   }
 }
