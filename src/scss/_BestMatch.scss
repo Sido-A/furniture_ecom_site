@@ -1,4 +1,5 @@
 .bestMatch {
+  cursor: pointer;
   @include breakpoint-smaller-than(medium) {
     margin-bottom: 1.75rem;
   }
@@ -8,11 +9,26 @@
   }
 
   &__selectField {
+    position: relative;
     width: 327px;
     border-bottom: 2px solid $superLightGray;
+
     @include breakpoint-bigger-than(large) {
       width: 298px;
     }
+
+    &::after {
+      content: "+";
+      color: #000;
+      right: 5px;
+      top: 4px;
+      height: 26px;
+      position: absolute;
+      pointer-events: none;
+      font-weight: 600;
+      font-size: 1.125rem;
+    }
+
     select {
       width: 327px;
       border: none;

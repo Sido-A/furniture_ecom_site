@@ -33,6 +33,11 @@ ul {
   padding: 0;
 }
 
+select,
+option {
+  -webkit-appearance: none;
+}
+
 //default link style (master mobile,so default color is white)
 a {
   color: $mainBlack;
