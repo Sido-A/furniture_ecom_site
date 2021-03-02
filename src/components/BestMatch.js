@@ -1,13 +1,13 @@
 import React from "react";
 
-function BestMatch() {
+function BestMatch({ preferenceHandler }) {
   return (
     <div className="bestMatch">
       <div className="bestMatch__selectField">
-        <select>
-          <option value="#">Best match</option>
-          <option value="#">Price low to high</option>
-          <option value="#">Price high to low</option>
+        <select onChange={preferenceHandler}>
+          <option value="bestMatch">Best match</option>
+          <option value="priceLowHigh">Price low to high</option>
+          <option value="priceHighLow">Price high to low</option>
         </select>
       </div>
     </div>

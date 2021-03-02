@@ -6,13 +6,39 @@ export const initialState = {
 
 const reducer = (state, action) => {
   switch (action.type) {
-    case "ADD_COLOR":
-      return null;
-
     case "ADD_PRODUCTS":
       return {
         ...state,
         products: action.products,
+      };
+
+    case "PREFERENCE":
+      let sortPreference = [];
+      if (action.selectedPreference.match("bestMatch")) {
+        const alphaSort = state.products.sort((productA, productB) =>
+          productA.name !== productB.name
+            ? productA.name < productB.name
+              ? -1
+              : 1
+            : 0
+        );
+
+        console.log(alphaSort);
+        sortPreference = alphaSort;
+      } else if (action.selectedPreference.match("priceLowHigh")) {
+        const lowToHigh = state.products.sort((productA, productB) => {
+          return parseInt(productA.price) - parseInt(productB.price);
+        });
+        sortPreference = lowToHigh;
+      } else {
+        const highToLow = state.products.sort((productA, productB) => {
+          return parseInt(productB.price) - parseInt(productA.price);
+        });
+        sortPreference = highToLow;
+      }
+      return {
+        state,
+        products: sortPreference,
       };
 
     case "ADD_FILTER":
