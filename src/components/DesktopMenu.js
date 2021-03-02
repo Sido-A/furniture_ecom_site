@@ -1,6 +1,6 @@
 import React from "react";
 import { NavLink, Link } from "react-router-dom";
-import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
+import Cart from "./Cart";
 import logo from "../Images/logo64.png";
 
 function DesktopMenu() {
@@ -26,9 +26,7 @@ function DesktopMenu() {
         </div>
 
         <div className="header__desktopRight">
-          <Link className="cart" to="#">
-            <ShoppingCartIcon />
-          </Link>
+          <Cart />
 
           <Link className="login" to="#">
             Login

@@ -1,6 +1,6 @@
 import React from "react";
-import { NavLink, Link } from "react-router-dom";
-import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
+import { NavLink } from "react-router-dom";
+import Cart from "./Cart";
 
 function MobileMenu({ mobileMenuToggle, isOpen }) {
   return (
@@ -41,10 +41,7 @@ function MobileMenu({ mobileMenuToggle, isOpen }) {
         </div>
 
         <div className="header__mobileUnderlay">
-          <Link className="cart" to="#">
-            <ShoppingCartIcon />
-          </Link>
-
+          <Cart />
           <div
             onClick={mobileMenuToggle}
             id="hamburgerMenu"
