@@ -8,7 +8,7 @@ import { useStateValue } from "../StateProvider";
 function Search({ changeDetector, change }) {
   const [{}, dispatch] = useStateValue();
   const [searchFiled, setSearchFiled] = useState("");
-  const [preference, setPreference] = useState("");
+  const [preference, setPreference] = useState("bestMatch");
   const history = useHistory();
 
   useEffect(() => {
