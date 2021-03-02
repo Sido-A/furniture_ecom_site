@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "./App.css";
-import db from "./firebase";
 
 import Header from "./components/Header";
 import Search from "./components/Search";
@@ -9,9 +8,12 @@ import ProductsFilterContainer from "./components/ProductsFilterContainer";
 import Products from "./components/Products";
 import TopSlider from "./components/TopSlider";
 import Footer from "./components/Footer";
-import { useStateValue } from "./StateProvider";
 
 function App() {
+  const [change, setChange] = useState(false);
+  const changeDetector = () => {
+    setChange(!change);
+  };
   return (
     <Router>
       <div className="app">
@@ -24,14 +26,14 @@ function App() {
 
           <Route path="/products">
             <Header />
-            <Search />
-            <ProductsFilterContainer />
+            <Search change={change} changeDetector={changeDetector} />
+            <ProductsFilterContainer changeDetector={changeDetector} />
             <Footer />
           </Route>
 
           <Route path="/">
             <Header />
-            <Search />
+            <Search change={change} changeDetector={changeDetector} />
             <TopSlider />
             <Footer />
           </Route>

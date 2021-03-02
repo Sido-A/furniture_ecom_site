@@ -1,20 +1,28 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router";
 
 import BestMatch from "./BestMatch";
 import SearchIcon from "@material-ui/icons/Search";
 import { useStateValue } from "../StateProvider";
 
-function Search() {
+function Search({ changeDetector, change }) {
   const [{}, dispatch] = useStateValue();
   const [searchFiled, setSearchFiled] = useState("");
+  const [preference, setPreference] = useState("");
   const history = useHistory();
 
-  const preferenceHandler = (e) => {
+  useEffect(() => {
+    // checking the changes of the filter (checkedItems)
+    // on any changes, the preference will be updated on current showing products
     dispatch({
       type: "PREFERENCE",
-      selectedPreference: e.target.value,
+      selectedPreference: preference,
     });
+  }, [change]);
+
+  const preferenceHandler = (e) => {
+    setPreference(e.target.value);
+    changeDetector();
   };
 
   const pushToProductOnFocus = () => {
