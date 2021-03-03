@@ -17,8 +17,12 @@ function Product({ data }) {
         selectedProduct: data,
       });
     } else {
-      history.push(`/magazine/${data.id}`);
       console.log("REDIRECT TO DETAIL");
+      dispatch({
+        type: "PRODUCT_DETAIL",
+        selectedProduct: data,
+      });
+      history.push(`/magazine/${data.id}`);
     }
   };
 
