@@ -2,6 +2,7 @@ export const initialState = {
   cart: [],
   user: null,
   products: [],
+  productDetail: [],
 };
 
 const reducer = (state, action) => {
@@ -17,6 +18,7 @@ const reducer = (state, action) => {
         ...state,
         cart: [...state.cart, action.selectedProduct],
       };
+
     case "PREFERENCE":
       let sortPreference = [];
       if (action.selectedPreference.match("bestMatch")) {
@@ -242,6 +244,12 @@ const reducer = (state, action) => {
         products: filterRemoved,
       };
 
+    case "PRODUCT_DETAIL":
+      console.log(action);
+      return {
+        ...state,
+        productDetail: action.selectedProduct,
+      };
     default:
       return state;
   }
