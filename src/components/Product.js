@@ -5,7 +5,6 @@ import { useStateValue } from "../StateProvider";
 
 function Product({ data }) {
   const [{}, dispatch] = useStateValue();
-  // when product is clicked redirect to item detail page
   const history = useHistory();
 
   const toProductDetailOrAddToCart = (e) => {
