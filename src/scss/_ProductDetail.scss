@@ -1,0 +1,120 @@
+.productDetail {
+  margin-bottom: 3rem;
+  @include breakpoint-bigger-than(large) {
+    display: flex;
+  }
+
+  &__left {
+    @include breakpoint-bigger-than(large) {
+      margin-right: 1.0625rem;
+      margin-bottom: 3rem;
+    }
+
+    .detailTopImg {
+      display: block;
+      width: 414px;
+      height: 354px;
+      object-fit: cover;
+      object-position: center center;
+      margin-bottom: 2.75rem;
+      @include breakpoint-bigger-than(medium) {
+        width: 683px;
+        height: 330px;
+      }
+    }
+
+    &-desktopImgSlider {
+      display: none;
+      @include breakpoint-bigger-than(large) {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        width: 400px;
+        img {
+          width: 69px;
+          height: 36px;
+        }
+      }
+    }
+  }
+
+  &__right {
+    width: 264px;
+    margin: 0 auto;
+    padding-bottom: 5.625rem;
+    text-transform: capitalize;
+    @include breakpoint-bigger-than(large) {
+      margin: 0;
+    }
+    &-typoGraph {
+      h1 {
+        font-size: 1rem;
+        margin-bottom: 0.75rem;
+      }
+
+      .description {
+        width: 191px;
+        font-size: 0.6875rem;
+        margin-bottom: 1rem;
+      }
+
+      .price {
+        font-size: 1rem;
+        margin-bottom: 0.625rem;
+      }
+
+      .dispatchWithin {
+        text-transform: uppercase;
+        margin-bottom: 1.625rem;
+      }
+    }
+
+    &-colors {
+      cursor: pointer;
+      margin-bottom: 3.5625rem;
+      > ul {
+        display: flex;
+        .colorCircle {
+          width: 32px;
+          height: 32px;
+          border-radius: 50%;
+          border: 1px solid rgba(0, 0, 0, 0.5);
+          &:not(:last-child) {
+            margin-right: 0.6875rem;
+          }
+        }
+      }
+    }
+
+    .button {
+      cursor: pointer;
+      color: #fff;
+      background-color: $darkBlack;
+      border: 1px solid $darkBlack;
+      width: 264px;
+      height: 47px;
+      margin-bottom: 6px;
+      text-align: center;
+      text-transform: uppercase;
+      font-size: 0.6875rem;
+      font-weight: 800;
+      letter-spacing: 3px;
+    }
+
+    .detailToggler {
+      color: $darkBlack;
+      background-color: #fff;
+      margin-bottom: 1.1875rem;
+      vertical-align: middle;
+      > span {
+        font-size: 0.8rem;
+      }
+    }
+
+    &-details {
+      font-size: 0.5625rem;
+      transition: all 300ms ease-in-out;
+      margin-bottom: -90px;
+    }
+  }
+}
