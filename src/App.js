@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "./App.css";
+import db from "./firebase";
 
 import Header from "./components/Header";
 import Search from "./components/Search";
@@ -17,6 +18,22 @@ function App() {
   const changeDetector = () => {
     setChange(!change);
   };
+
+  useEffect(() => {
+    db.collection("furnitures")
+      .get()
+      .then((snap) => {
+        const data = snap.docs.map((doc) => ({
+          id: doc.id,
+          ...doc.data(),
+        }));
+        dispatch({
+          type: "SET_PRODUCTS",
+          products: data,
+        });
+      })
+      .catch((err) => console.assert(err));
+  }, []);
 
   return (
     <Router>
