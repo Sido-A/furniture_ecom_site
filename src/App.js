@@ -6,18 +6,29 @@ import Header from "./components/Header";
 import Search from "./components/Search";
 import ProductsFilterContainer from "./components/ProductsFilterContainer";
 import Products from "./components/Products";
+import ProductDetail from "./components/ProductDetail";
 import TopSlider from "./components/TopSlider";
 import Footer from "./components/Footer";
+import { useStateValue } from "./StateProvider";
 
 function App() {
+  const [{ productDetail }, dispatch] = useStateValue();
   const [change, setChange] = useState(false);
   const changeDetector = () => {
     setChange(!change);
   };
+
   return (
     <Router>
       <div className="app">
         <Switch>
+          {productDetail.length !== 0 ? (
+            <Route path={`/magazine/${productDetail.id}`}>
+              <Header />
+              <ProductDetail productDetail={productDetail} />
+              <Footer />
+            </Route>
+          ) : null}
           <Route path="/magazine">
             <Header />
             <Products />
