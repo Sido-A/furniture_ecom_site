@@ -7,7 +7,7 @@ import { useStateValue } from "../StateProvider";
 
 function Filters({ changeDetector }) {
   const [furnitureData, setFurnitureData] = useState([]);
-  const [{}, dispatch] = useStateValue();
+  const [{ products }, dispatch] = useStateValue();
   const [sliderMinValue, setSliderMinValue] = useState(0);
   const [sliderMaxValue, setSliderMaxValue] = useState(5000);
   const [isMobileFilterMenuOpen, setIsMobileFilterMenuOpen] = useState(false);
@@ -16,19 +16,6 @@ function Filters({ changeDetector }) {
     color: [],
     category: [],
   });
-
-  // set date for first load
-  useEffect(() => {
-    db.collection("furnitures")
-      .get()
-      .then((snap) => {
-        const data = snap.docs.map((doc) => ({
-          id: doc.id,
-          ...doc.data(),
-        }));
-        setFurnitureData(data);
-      });
-  }, []);
 
   // set data each time checkbox or price range changes
   useEffect(() => {
@@ -108,17 +95,17 @@ function Filters({ changeDetector }) {
   };
 
   //colors == firebase "colors"
-  const productsColor = furnitureData.map((data) => {
+  const productsColor = products.map((data) => {
     return data.colors;
   });
 
   //category == firebase "type"
-  const productsCategory = furnitureData.map((data) => {
+  const productsCategory = products.map((data) => {
     return data.type;
   });
 
   //collections == firebase "name"
-  const productsCollection = furnitureData.map((data) => {
+  const productsCollection = products.map((data) => {
     return data.name;
   });
 
