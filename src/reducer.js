@@ -7,7 +7,7 @@ export const initialState = {
 
 const reducer = (state, action) => {
   switch (action.type) {
-    case "ADD_PRODUCTS":
+    case "SET_PRODUCTS":
       return {
         ...state,
         products: action.products,
