@@ -1,9 +1,9 @@
 import React from "react";
 
-function Page({ pageNumber, handlePageClick }) {
+function Page({ currentPage, pageNumber, handlePageClick }) {
   return (
     <a
-      className="page"
+      className={`page ${currentPage === pageNumber ? "current" : ""}`}
       data-page-number={pageNumber}
       key={pageNumber}
       onClick={handlePageClick}

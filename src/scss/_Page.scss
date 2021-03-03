@@ -14,4 +14,9 @@
     background-color: $lightGreen;
     color: #fff;
   }
+
+  &.current {
+    color: #fff;
+    background-color: $lightGreen;
+  }
 }
