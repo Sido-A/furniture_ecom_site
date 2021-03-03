@@ -9,7 +9,6 @@ function Products() {
   const [contentPerPage, setContentPerPage] = useState(6);
   const indexOfLastContent = currentPage * contentPerPage;
   const indexOfFirstContent = indexOfLastContent - contentPerPage;
-
   const currentPageContents = products.slice(
     indexOfFirstContent,
     indexOfLastContent
@@ -37,7 +36,11 @@ function Products() {
 
       <div className="products__pages">
         {pageNumbers.map((page) => (
-          <Page pageNumber={page} handlePageClick={handlePageClick} />
+          <Page
+            currentPage={currentPage}
+            pageNumber={page}
+            handlePageClick={handlePageClick}
+          />
         ))}
       </div>
     </div>
