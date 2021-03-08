@@ -4,7 +4,6 @@ import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 
 function ProductDetail({ productDetail }) {
-  console.log("productDetail", productDetail);
   const [{}, dispatch] = useStateValue();
   const [isDetailOpen, setIsDetailOpen] = useState(false);
 
