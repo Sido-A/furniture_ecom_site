@@ -11,7 +11,7 @@ function Product({ data }) {
     if (e.target.name === "cart") {
       dispatch({
         type: "ADD_TO_CART",
-        selectedProduct: data,
+        selectedProduct: { ...data, quantity: 1 },
       });
     } else {
       dispatch({
