@@ -14,9 +14,48 @@ const reducer = (state, action) => {
       };
 
     case "ADD_TO_CART":
+      let selectedProductNewObj = {};
+
+      if (state.cart.length !== 0) {
+        state.cart.map((cartItem) => {
+          if (cartItem.id === action.selectedProduct.id) {
+            // if item is already existing in the cart,
+            //count up quantity
+            const countUpdatedItem = {
+              ...cartItem,
+              quantity: cartItem.quantity + 1,
+            };
+
+            selectedProductNewObj = countUpdatedItem;
+            return;
+          } else {
+            //if no id matched
+            selectedProductNewObj = action.selectedProduct;
+          }
+        });
+      } else {
+        // if cart.length is 0
+        selectedProductNewObj = action.selectedProduct;
+      }
+
+      // checking existing cart
+      let newCartItems = [];
+      if (state.cart.length !== 0) {
+        // if existing cartItem id and selected product id is equal
+        // ignore the matched one
+        const filteredExistingCartItems = state.cart.filter((cartItem) =>
+          cartItem.id !== action.selectedProduct.id ? cartItem : null
+        );
+
+        // re-assign the filtered existing cart and count updated item
+        newCartItems = [...filteredExistingCartItems, selectedProductNewObj];
+      } else {
+        newCartItems = [selectedProductNewObj];
+      }
+
       return {
         ...state,
-        cart: [...state.cart, action.selectedProduct],
+        cart: newCartItems,
       };
 
     case "PREFERENCE":
