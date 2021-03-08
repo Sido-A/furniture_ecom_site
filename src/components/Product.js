@@ -9,14 +9,11 @@ function Product({ data }) {
 
   const toProductDetailOrAddToCart = (e) => {
     if (e.target.name === "cart") {
-      console.log("add to cart");
-      console.log(data);
       dispatch({
         type: "ADD_TO_CART",
         selectedProduct: data,
       });
     } else {
-      console.log("REDIRECT TO DETAIL");
       dispatch({
         type: "PRODUCT_DETAIL",
         selectedProduct: data,
