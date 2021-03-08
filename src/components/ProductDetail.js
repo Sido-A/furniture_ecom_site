@@ -18,6 +18,7 @@ function ProductDetail({ productDetail }) {
       selectedProduct: productDetail,
     });
   };
+
   return (
     <div className="productDetail container">
       <div className="productDetail__left">
@@ -51,7 +52,7 @@ function ProductDetail({ productDetail }) {
             {productDetail.colors.map((color) => (
               <li
                 className={`colorCircle ${color}`}
-                style={{ background: color }}
+                style={{ background: color, border: `${color} 1px solid` }}
               ></li>
             ))}
           </ul>
@@ -65,18 +66,24 @@ function ProductDetail({ productDetail }) {
         {isDetailOpen ? (
           <div className="productDetail__right-details">
             <p>
-              - seat dimensions:
-              <span> W: 267cm</span>,<span> D: 267cm</span>,
-              <span> H: 67cm</span>
+              - dimensions: <span> W: {productDetail.dimensions.width}cm</span>,
+              <span> D: {productDetail.dimensions.depth}cm</span>,
+              <span> H: {productDetail.dimensions.height}cm</span>
             </p>
-            <p>- seat dimensions:</p>
-            <p>- seat dimensions:</p>
-            <p>- seat dimensions:</p>
-            <p>- seat dimensions:</p>
-            <p>- seat dimensions:</p>
-            <p>- seat dimensions:</p>
-            <p>- seat dimensions:</p>
-            <p>- seat dimensions:</p>
+            <p>
+              - seat dimensions:
+              <span> W: {productDetail["seat_dimensions"].width}cm</span>,
+              <span> D: {productDetail["seat_dimensions"].depth}cm</span>,
+              <span> H: {productDetail["seat_dimensions"].height}cm</span>
+            </p>
+
+            <p>- weight: {productDetail.weight} kg</p>
+            <p>- materials: {productDetail.materials.join(" , ")}</p>
+            <p>
+              - filing materials:{" "}
+              {productDetail["filling_materials"].join(" , ")}
+            </p>
+            <p>- comfort level: {productDetail["comfort_level"]}</p>
           </div>
         ) : null}
       </div>
