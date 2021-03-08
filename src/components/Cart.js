@@ -6,7 +6,7 @@ import { useStateValue } from "../StateProvider";
 function Cart() {
   const [{ cart }, dispatch] = useStateValue();
   return (
-    <Link className="cart" to="#">
+    <Link className="cart" to="/orders">
       <img
         src={`${emptyCartButton}`}
         className="cart__icon"
