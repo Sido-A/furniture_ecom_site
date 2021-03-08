@@ -1271,6 +1271,7 @@ a:hover {
 
 .productDetail__left-desktopImgSlider {
   display: none;
+  cursor: pointer;
 }
 
 @media (min-width: 64em) {
@@ -1288,6 +1289,10 @@ a:hover {
   .productDetail__left-desktopImgSlider img {
     width: 69px;
     height: 36px;
+  }
+  .productDetail__left-desktopImgSlider img:hover {
+    -webkit-filter: brightness(80%);
+            filter: brightness(80%);
   }
 }
 
@@ -1341,10 +1346,17 @@ a:hover {
   height: 32px;
   border-radius: 50%;
   border: 1px solid rgba(0, 0, 0, 0.5);
+  -webkit-transition: all 250ms ease-in-out;
+  transition: all 250ms ease-in-out;
 }
 
 .productDetail__right-colors > ul .colorCircle:not(:last-child) {
   margin-right: 0.6875rem;
+}
+
+.productDetail__right-colors > ul .colorCircle:hover {
+  -webkit-filter: brightness(70%);
+          filter: brightness(70%);
 }
 
 .productDetail__right .button {
@@ -1378,6 +1390,10 @@ a:hover {
   -webkit-transition: all 300ms ease-in-out;
   transition: all 300ms ease-in-out;
   margin-bottom: -90px;
+}
+
+.productDetail__right-details > p:not(:last-child) {
+  margin-bottom: 0.4375rem;
 }
 
 .page {
