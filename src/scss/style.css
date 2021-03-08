@@ -233,7 +233,7 @@ a:hover {
 }
 
 .header {
-  margin-top: 2.75rem;
+  margin-top: 0.15rem;
   margin-bottom: 1.75rem;
 }
 
@@ -258,7 +258,7 @@ a:hover {
   height: 100vh;
   background-color: #000;
   visibility: visible;
-  z-index: 1;
+  z-index: 20;
 }
 
 @media (min-width: 64em) {
@@ -283,9 +283,9 @@ a:hover {
 .header__mobileOverlayMenu {
   position: absolute;
   left: 0;
-  width: 95%;
+  width: 98%;
   visibility: hidden;
-  z-index: 1;
+  z-index: 30;
 }
 
 .header__mobileOverlayMenu.open {
@@ -354,6 +354,13 @@ a:hover {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 1;
+  background: #fff;
+  padding: 1.5rem;
 }
 
 .header__mobileUnderlay .cart {
