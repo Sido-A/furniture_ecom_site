@@ -5,6 +5,14 @@ import { useStateValue } from "../StateProvider";
 
 function Cart() {
   const [{ cart }, dispatch] = useStateValue();
+
+  // update cart with total item quantity
+  // no matter same item or not
+  let totalCartItems = 0;
+  for (let i = 0; i < cart.length; i++) {
+    totalCartItems += cart[i].quantity;
+  }
+
   return (
     <Link className="cart" to="/orders">
       <img
@@ -13,7 +21,7 @@ function Cart() {
         alt="Empty Cart Button"
       />
       {cart.length !== 0 ? (
-        <span className="cart__itemsNumber">{cart.length}</span>
+        <span className="cart__itemsNumber">{totalCartItems}</span>
       ) : null}
     </Link>
   );
