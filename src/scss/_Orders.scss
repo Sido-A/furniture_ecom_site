@@ -1,0 +1,11 @@
+.orders {
+  margin-bottom: 5rem;
+  &__empty {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 80vh;
+    color: #fff;
+    background-color: $lightGray;
+  }
+}

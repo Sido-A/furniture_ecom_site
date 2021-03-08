@@ -8,6 +8,7 @@ import Search from "./components/Search";
 import ProductsFilterContainer from "./components/ProductsFilterContainer";
 import Products from "./components/Products";
 import ProductDetail from "./components/ProductDetail";
+import Orders from "./components/Orders";
 import TopSlider from "./components/TopSlider";
 import Footer from "./components/Footer";
 import { useStateValue } from "./StateProvider";
@@ -39,6 +40,13 @@ function App() {
     <Router>
       <div className="app">
         <Switch>
+          <Route path="/orders">
+            <Header />
+            <Orders />
+
+            <Footer />
+          </Route>
+
           {productDetail.length !== 0 ? (
             <Route path={`/magazine/${productDetail.id}`}>
               <Header />
