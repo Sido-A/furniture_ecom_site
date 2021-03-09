@@ -14,7 +14,7 @@ function ProductDetail({ productDetail }) {
   const addToCart = () => {
     dispatch({
       type: "ADD_TO_CART",
-      selectedProduct: productDetail,
+      selectedProduct: { ...productDetail, quantity: 1 },
     });
   };
 

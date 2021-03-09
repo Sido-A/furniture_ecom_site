@@ -32,12 +32,19 @@ ul {
   margin: 0;
   padding: 0;
 }
-
 select,
-option {
+option,
+input[type="text"],
+input[type="button"],
+button {
   -webkit-appearance: none;
+  -webkit-border-radius: 0;
+  border: none;
+  background-color: transparent;
 }
-
+button {
+  cursor: pointer;
+}
 //default link style (master mobile,so default color is white)
 a {
   color: $mainBlack;

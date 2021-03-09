@@ -1,5 +1,21 @@
 .orders {
   margin-bottom: 5rem;
+
+  &__container {
+    display: grid;
+    gap: 1rem;
+    place-items: center;
+    place-content: center;
+    grid-template-columns: repeat(1, 300px);
+
+    @include breakpoint-bigger-than(medium) {
+      grid-template-columns: repeat(2, 300px);
+    }
+
+    @include breakpoint-bigger-than(large) {
+      grid-template-columns: repeat(3, 300px);
+    }
+  }
   &__empty {
     display: flex;
     align-items: center;
