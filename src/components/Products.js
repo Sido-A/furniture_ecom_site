@@ -19,6 +19,7 @@ function Products() {
       e.target.getAttribute("data-page-number")
     );
     setCurrentPage(selectedPageNumber);
+    window.scrollTo(0, 0);
   };
 
   const pageNumbers = [];
