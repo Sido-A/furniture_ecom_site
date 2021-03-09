@@ -1,14 +1,44 @@
-import React from "react";
+import React, { useState } from "react";
 import AddIcon from "@material-ui/icons/Add";
 import RemoveIcon from "@material-ui/icons/Remove";
 import ClearIcon from "@material-ui/icons/Clear";
+import { useStateValue } from "../StateProvider";
 
 function Order({ cartItem }) {
+  const [{}, dispatch] = useStateValue();
+  const [itemQuantity, setItemQuantity] = useState(cartItem.quantity);
+
+  const addItem = () => {
+    // setItemQuantity(itemQuantity + 1);
+    dispatch({
+      type: "ADD_TO_CART",
+      selectedProduct: cartItem,
+    });
+  };
+
+  const removeItem = () => {
+    if (cartItem.quantity !== 0) {
+      // setItemQuantity(itemQuantity - 1);
+      dispatch({
+        type: "SUBTRACT_FROM_CART",
+        selectedProduct: cartItem,
+      });
+    } else {
+      setItemQuantity(0);
+    }
+  };
+
+  const deleteItem = () => {
+    dispatch({
+      type: "DELETE_FROM_CART",
+      selectedProduct: cartItem,
+    });
+  };
   return (
     <div className="order">
       <div className="order__itemImage">
         <img src={`${cartItem.image}`} />
-        <span>
+        <span onClick={deleteItem}>
           <ClearIcon />
         </span>
       </div>
@@ -22,11 +52,11 @@ function Order({ cartItem }) {
           <p>Total: £{cartItem.price * cartItem.quantity}</p>
         </div>
         <div className="order__priceQuantityWrapper-quantity">
-          <button className="remove">
+          <button onClick={removeItem} className="remove">
             <RemoveIcon />
           </button>
           <span>{cartItem.quantity}</span>
-          <button className="add">
+          <button onClick={addItem} className="add">
             <AddIcon />
           </button>
         </div>

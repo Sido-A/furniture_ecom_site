@@ -15,26 +15,25 @@ const reducer = (state, action) => {
 
     case "ADD_TO_CART":
       let selectedProductNewObj = {};
-
       if (state.cart.length !== 0) {
-        state.cart.map((cartItem) => {
-          if (cartItem.id === action.selectedProduct.id) {
-            // if item is already existing in the cart,
-            //count up quantity
+        const filterCart = state.cart.filter((cartItem) =>
+          cartItem.id === action.selectedProduct.id ? cartItem : null
+        );
+
+        if (filterCart.length !== 0) {
+          filterCart.map((cartItem) => {
             const countUpdatedItem = {
               ...cartItem,
               quantity: cartItem.quantity + 1,
             };
-
             selectedProductNewObj = countUpdatedItem;
-            return;
-          } else {
-            //if no id matched
-            selectedProductNewObj = action.selectedProduct;
-          }
-        });
+          });
+        } else {
+          selectedProductNewObj = action.selectedProduct;
+        }
       } else {
         // if cart.length is 0
+        console.log("no cart item");
         selectedProductNewObj = action.selectedProduct;
       }
 
@@ -44,9 +43,8 @@ const reducer = (state, action) => {
         // if existing cartItem id and selected product id is equal
         // ignore the matched one
         const filteredExistingCartItems = state.cart.filter((cartItem) =>
-          cartItem.id !== action.selectedProduct.id ? cartItem : null
+          cartItem.id !== action.selectedProduct.id ? cartItem : false
         );
-
         // re-assign the filtered existing cart and count updated item
         newCartItems = [...filteredExistingCartItems, selectedProductNewObj];
       } else {
@@ -58,6 +56,60 @@ const reducer = (state, action) => {
         cart: newCartItems,
       };
 
+    case "SUBTRACT_FROM_CART":
+      let removeProductNewObj = {};
+
+      const filterCart = state.cart.filter((cartItem) =>
+        cartItem.id === action.selectedProduct.id ? cartItem : null
+      );
+
+      if (filterCart.length !== 0) {
+        filterCart.map((cartItem) => {
+          const countUpdatedItem = {
+            ...cartItem,
+            quantity: cartItem.quantity - 1,
+          };
+          removeProductNewObj = countUpdatedItem;
+        });
+      } else {
+        removeProductNewObj = action.selectedProduct;
+      }
+
+      // checking existing cart
+      let newSubtractedCartItems = [];
+      if (state.cart.length !== 0) {
+        // if existing cartItem id and selected product id is equal
+        // ignore the matched one
+        const filteredExistingCartItems = state.cart.filter((cartItem) =>
+          cartItem.id !== action.selectedProduct.id ? cartItem : false
+        );
+        // re-assign the filtered existing cart and count updated item
+        if (removeProductNewObj.quantity !== 0) {
+          newSubtractedCartItems = [
+            ...filteredExistingCartItems,
+            removeProductNewObj,
+          ];
+        } else {
+          newSubtractedCartItems = [...filteredExistingCartItems];
+        }
+      } else {
+        newSubtractedCartItems = [removeProductNewObj];
+      }
+
+      return {
+        ...state,
+        cart: newSubtractedCartItems,
+      };
+
+    case "DELETE_FROM_CART":
+      const notDeletedProducts = state.cart.filter((product) =>
+        product.id !== action.selectedProduct.id ? product : null
+      );
+
+      return {
+        ...state,
+        cart: notDeletedProducts,
+      };
     case "PREFERENCE":
       let sortPreference = [];
       if (action.selectedPreference.match("bestMatch")) {
