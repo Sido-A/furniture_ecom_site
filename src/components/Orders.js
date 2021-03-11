@@ -3,13 +3,16 @@ import { useStateValue } from "../StateProvider";
 import Order from "./Order";
 function Orders() {
   const [{ cart }, dispatch] = useStateValue();
-  console.log("cart", cart);
+
+  const itemOrderedCart = cart.sort((itemA, itemB) => {
+    return itemA.itemId - itemB.itemId;
+  });
 
   return (
     <div className="orders">
       {cart.length !== 0 ? (
         <div className="orders__container container">
-          {cart.map((cartItem) => (
+          {itemOrderedCart.map((cartItem) => (
             <Order cartItem={cartItem} />
           ))}
         </div>

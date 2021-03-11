@@ -1,10 +1,16 @@
 .header {
-  margin-top: 0.15rem;
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
   margin-bottom: 2.75rem;
+  background: #fff;
 
   @include breakpoint-bigger-than(large) {
-    margin-top: 1.625rem;
-    margin-bottom: 4.25rem;
+    padding-top: 1.25rem;
+    padding-bottom: 1.25rem;
+    margin-bottom: 3rem;
   }
 
   &__container {
@@ -98,13 +104,7 @@
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    position: fixed;
-    top: 0;
-    right: 0;
-    left: 0;
-    z-index: 1;
-    background: #fff;
-    padding: 1.5rem;
+    padding: 1rem;
 
     .cart {
       color: $mainBlack;

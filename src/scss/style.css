@@ -243,14 +243,21 @@ a:hover {
 }
 
 .header {
-  margin-top: 0.15rem;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
   margin-bottom: 2.75rem;
+  background: #fff;
 }
 
 @media (min-width: 64em) {
   .header {
-    margin-top: 1.625rem;
-    margin-bottom: 4.25rem;
+    padding-top: 1.25rem;
+    padding-bottom: 1.25rem;
+    margin-bottom: 3rem;
   }
 }
 
@@ -364,13 +371,7 @@ a:hover {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  position: fixed;
-  top: 0;
-  right: 0;
-  left: 0;
-  z-index: 1;
-  background: #fff;
-  padding: 1.5rem;
+  padding: 1rem;
 }
 
 .header__mobileUnderlay .cart {
