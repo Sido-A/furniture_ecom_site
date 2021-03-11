@@ -20,6 +20,13 @@ function Search({ changeDetector, change }) {
     });
   }, [change]);
 
+  useEffect(() => {
+    dispatch({
+      type: "KEYWORDS",
+      searchedWords: searchFiled,
+    });
+  }, [searchFiled]);
+
   const preferenceHandler = (e) => {
     setPreference(e.target.value);
     changeDetector();

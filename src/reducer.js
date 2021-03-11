@@ -1,6 +1,7 @@
 export const initialState = {
   cart: [],
   user: null,
+  initialProducts: [],
   products: [],
   productDetail: [],
 };
@@ -10,6 +11,7 @@ const reducer = (state, action) => {
     case "SET_PRODUCTS":
       return {
         ...state,
+        initialProducts: action.products,
         products: action.products,
       };
 
@@ -110,6 +112,30 @@ const reducer = (state, action) => {
         ...state,
         cart: notDeletedProducts,
       };
+
+    case "KEYWORDS":
+      const text = action.searchedWords;
+      if (text === "") {
+        return {
+          ...state,
+          products: state.initialProducts,
+        };
+      } else {
+        const matchedProducts = state.initialProducts.filter((product) => {
+          const keywords = product.keywords;
+          for (let i = 0; i < keywords.length; i++) {
+            if (text.includes(keywords[i])) {
+              return product;
+            }
+          }
+        });
+
+        return {
+          ...state,
+          products: matchedProducts,
+        };
+      }
+
     case "PREFERENCE":
       let sortPreference = [];
       if (action.selectedPreference.match("bestMatch")) {
