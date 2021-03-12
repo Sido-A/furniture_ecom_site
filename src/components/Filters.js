@@ -7,7 +7,7 @@ import { useStateValue } from "../StateProvider";
 
 function Filters({ changeDetector }) {
   const [furnitureData, setFurnitureData] = useState([]);
-  const [{ products }, dispatch] = useStateValue();
+  const [{ initialProducts }, dispatch] = useStateValue();
   const [sliderMinValue, setSliderMinValue] = useState(0);
   const [sliderMaxValue, setSliderMaxValue] = useState(5000);
   const [isMobileFilterMenuOpen, setIsMobileFilterMenuOpen] = useState(false);
@@ -19,40 +19,24 @@ function Filters({ changeDetector }) {
 
   // set data each time checkbox or price range changes
   useEffect(() => {
-    db.collection("furnitures")
-      .get()
-      .then((snap) => {
-        const data = snap.docs.map((doc) => ({
-          id: doc.id,
-          ...doc.data(),
-        }));
-        setFurnitureData(data);
-        filterDispatchHandler(data);
-      })
-      .catch((err) => console.assert(err));
-
-    const filterDispatchHandler = (data) => {
-      if (
-        checkedItems.collection.length === 0 &&
-        checkedItems.color.length === 0 &&
-        checkedItems.category.length === 0
-      ) {
-        dispatch({
-          type: "REMOVE_FILTER",
-          products: data,
-          "min-price": sliderMinValue,
-          "max-price": sliderMaxValue,
-        });
-      } else {
-        dispatch({
-          type: "ADD_FILTER",
-          checkedItems,
-          products: furnitureData,
-          "min-price": sliderMinValue,
-          "max-price": sliderMaxValue,
-        });
-      }
-    };
+    if (
+      checkedItems.collection.length === 0 &&
+      checkedItems.color.length === 0 &&
+      checkedItems.category.length === 0
+    ) {
+      dispatch({
+        type: "REMOVE_FILTER",
+        "min-price": sliderMinValue,
+        "max-price": sliderMaxValue,
+      });
+    } else {
+      dispatch({
+        type: "ADD_FILTER",
+        checkedItems,
+        "min-price": sliderMinValue,
+        "max-price": sliderMaxValue,
+      });
+    }
     changeDetector();
   }, [checkedItems, sliderMinValue, sliderMaxValue]);
 
@@ -95,17 +79,17 @@ function Filters({ changeDetector }) {
   };
 
   //colors == firebase "colors"
-  const productsColor = products.map((data) => {
+  const productsColor = initialProducts.map((data) => {
     return data.colors;
   });
 
   //category == firebase "type"
-  const productsCategory = products.map((data) => {
+  const productsCategory = initialProducts.map((data) => {
     return data.type;
   });
 
   //collections == firebase "name"
-  const productsCollection = products.map((data) => {
+  const productsCollection = initialProducts.map((data) => {
     return data.name;
   });
 

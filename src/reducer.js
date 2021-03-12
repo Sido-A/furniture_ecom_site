@@ -114,7 +114,8 @@ const reducer = (state, action) => {
       };
 
     case "KEYWORDS":
-      const text = action.searchedWords;
+      const text = action.searchedWords.toLowerCase();
+
       if (text === "") {
         return {
           ...state,
@@ -124,7 +125,7 @@ const reducer = (state, action) => {
         const matchedProducts = state.initialProducts.filter((product) => {
           const keywords = product.keywords;
           for (let i = 0; i < keywords.length; i++) {
-            if (text.includes(keywords[i])) {
+            if (keywords[i].indexOf(text) > -1) {
               return product;
             }
           }
@@ -164,9 +165,9 @@ const reducer = (state, action) => {
       };
 
     case "ADD_FILTER":
-      const { checkedItems, products } = action;
+      const { checkedItems } = action;
 
-      const cloneProducts = [...products];
+      const cloneProducts = [...state.initialProducts];
       let localProducts = [];
 
       const filteredProducts = cloneProducts
@@ -335,7 +336,7 @@ const reducer = (state, action) => {
 
     case "REMOVE_FILTER":
       // action.products hold data from firebase
-      const currentProducts = action.products;
+      const currentProducts = state.initialProducts;
       let filterRemoved = [];
 
       const priceRangeFilter = currentProducts
@@ -362,7 +363,6 @@ const reducer = (state, action) => {
       };
 
     case "PRODUCT_DETAIL":
-      console.log(action);
       return {
         ...state,
         productDetail: action.selectedProduct,
