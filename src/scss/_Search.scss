@@ -28,6 +28,12 @@
           height: 24px;
         }
       }
+
+      .clearSearch {
+        cursor: pointer;
+        color: $lightGray;
+      }
+
       input {
         border: none;
         width: 100%;

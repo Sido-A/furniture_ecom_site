@@ -37,7 +37,11 @@ function Search({ changeDetector, change }) {
   };
 
   const searchFieldHandler = (e) => {
-    setSearchFiled(e.target.value);
+    if (e.target.getAttribute("data-clear-search")) {
+      setSearchFiled("");
+    } else {
+      setSearchFiled(e.target.value);
+    }
   };
 
   return (
@@ -53,6 +57,15 @@ function Search({ changeDetector, change }) {
             onChange={searchFieldHandler}
             value={searchFiled}
           />
+          {searchFiled !== "" ? (
+            <span
+              className="clearSearch"
+              onClick={searchFieldHandler}
+              data-clear-search="clear"
+            >
+              &#x2715;
+            </span>
+          ) : null}
         </div>
       </div>
 
