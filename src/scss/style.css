@@ -46,6 +46,28 @@ button {
   cursor: pointer;
 }
 
+.button {
+  cursor: pointer;
+  color: #fff;
+  background-color: #131313;
+  border: 1px solid #131313;
+  width: 264px;
+  height: 47px;
+  margin-bottom: 6px;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 0.6875rem;
+  font-weight: 800;
+  letter-spacing: 3px;
+  -webkit-transition: all 350ms ease-in-out;
+  transition: all 350ms ease-in-out;
+}
+
+.button:hover {
+  background-color: #00c98d;
+  border: 1px solid #00c98d;
+}
+
 a {
   color: #22232b;
   text-decoration: none;
@@ -1382,26 +1404,15 @@ a:hover {
           filter: brightness(70%);
 }
 
-.productDetail__right .button {
-  cursor: pointer;
-  color: #fff;
-  background-color: #131313;
-  border: 1px solid #131313;
-  width: 264px;
-  height: 47px;
-  margin-bottom: 6px;
-  text-align: center;
-  text-transform: uppercase;
-  font-size: 0.6875rem;
-  font-weight: 800;
-  letter-spacing: 3px;
-}
-
 .productDetail__right .detailToggler {
   color: #131313;
   background-color: #fff;
   margin-bottom: 1.1875rem;
   vertical-align: middle;
+}
+
+.productDetail__right .detailToggler:hover {
+  background-color: #00c98d;
 }
 
 .productDetail__right .detailToggler > span {
@@ -1431,6 +1442,7 @@ a:hover {
   place-content: center;
   -ms-grid-columns: (300px)[1];
       grid-template-columns: repeat(1, 300px);
+  margin-bottom: 5rem;
 }
 
 @media (min-width: 40em) {
@@ -1460,6 +1472,11 @@ a:hover {
   min-height: 80vh;
   color: #fff;
   background-color: #979797;
+}
+
+.orders__purchaseButton {
+  width: 100%;
+  text-align: center;
 }
 
 .order {

@@ -98,26 +98,15 @@
       }
     }
 
-    .button {
-      cursor: pointer;
-      color: #fff;
-      background-color: $darkBlack;
-      border: 1px solid $darkBlack;
-      width: 264px;
-      height: 47px;
-      margin-bottom: 6px;
-      text-align: center;
-      text-transform: uppercase;
-      font-size: 0.6875rem;
-      font-weight: 800;
-      letter-spacing: 3px;
-    }
-
     .detailToggler {
       color: $darkBlack;
       background-color: #fff;
       margin-bottom: 1.1875rem;
       vertical-align: middle;
+
+      &:hover {
+        background-color: $lightGreen;
+      }
       > span {
         font-size: 0.8rem;
       }

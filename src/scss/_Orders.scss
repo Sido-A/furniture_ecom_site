@@ -7,6 +7,7 @@
     place-items: center;
     place-content: center;
     grid-template-columns: repeat(1, 300px);
+    margin-bottom: 5rem;
 
     @include breakpoint-bigger-than(medium) {
       grid-template-columns: repeat(2, 300px);
@@ -23,5 +24,13 @@
     min-height: 80vh;
     color: #fff;
     background-color: $lightGray;
+  }
+
+  &__purchaseButton {
+    width: 100%;
+    text-align: center;
+
+    button {
+    }
   }
 }

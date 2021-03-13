@@ -21,6 +21,11 @@ function Orders() {
           <h1>Cart is empty</h1>
         </div>
       )}
+      {cart.length !== 0 ? (
+        <div className="orders__purchaseButton">
+          <button className="button">Purchase</button>
+        </div>
+      ) : null}
     </div>
   );
 }

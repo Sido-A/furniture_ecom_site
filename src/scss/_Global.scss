@@ -45,6 +45,27 @@ button {
 button {
   cursor: pointer;
 }
+
+.button {
+  cursor: pointer;
+  color: #fff;
+  background-color: $darkBlack;
+  border: 1px solid $darkBlack;
+  width: 264px;
+  height: 47px;
+  margin-bottom: 6px;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 0.6875rem;
+  font-weight: 800;
+  letter-spacing: 3px;
+  transition: all 350ms ease-in-out;
+
+  &:hover {
+    background-color: $lightGreen;
+    border: 1px solid $lightGreen;
+  }
+}
 //default link style (master mobile,so default color is white)
 a {
   color: $mainBlack;
