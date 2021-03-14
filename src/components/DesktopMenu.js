@@ -28,7 +28,7 @@ function DesktopMenu() {
         <div className="header__desktopRight">
           <Cart />
 
-          <Link className="login" to="#">
+          <Link className="login" to="/login">
             Login
           </Link>
         </div>

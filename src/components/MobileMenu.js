@@ -37,6 +37,11 @@ function MobileMenu({ mobileMenuToggle, isOpen }) {
                 Magazine
               </NavLink>
             </li>
+            <li>
+              <NavLink exact to="/login" onClick={mobileMenuToggle}>
+                Login
+              </NavLink>
+            </li>
           </ul>
         </div>
 
