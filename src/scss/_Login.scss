@@ -1,0 +1,33 @@
+.loginForm {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  &__container {
+    width: 31.25rem;
+    background-color: $lightGray;
+    border-radius: 5px;
+    min-height: 50vh;
+    box-shadow: 3px 3px 10px $superLightGray;
+  }
+  &__inputWrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: inherit;
+
+    .userInput {
+      cursor: pointer;
+      width: 70%;
+      min-width: 264px;
+      height: 50px;
+      border-radius: 3px;
+      outline: none;
+      box-shadow: none;
+      border: none;
+      padding: 10px;
+      margin-bottom: 3rem;
+    }
+  }
+}
