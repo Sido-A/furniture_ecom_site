@@ -1,11 +1,14 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function Login() {
   return (
     <div className="loginForm">
       <div className="loginForm__container container">
         <div className="loginForm__header">
-          <span>Back</span>
+          <span>
+            <Link to="/">Back</Link>
+          </span>
           <span>Sign up</span>
         </div>
 

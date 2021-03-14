@@ -3,6 +3,7 @@
   align-items: center;
   justify-content: center;
   min-height: 100vh;
+
   &__container {
     width: 31.25rem;
     background-color: $lightGray;
@@ -10,6 +11,15 @@
     min-height: 50vh;
     box-shadow: 3px 3px 10px $superLightGray;
   }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 1.5rem;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+
   &__inputWrapper {
     display: flex;
     flex-direction: column;
