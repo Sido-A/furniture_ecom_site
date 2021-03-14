@@ -236,6 +236,59 @@ a:hover {
           animation: close 300ms ease-in-out forwards;
 }
 
+.loginForm {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  min-height: 100vh;
+}
+
+.loginForm__container {
+  width: 31.25rem;
+  background-color: #979797;
+  border-radius: 5px;
+  min-height: 50vh;
+  -webkit-box-shadow: 3px 3px 10px #97979766;
+          box-shadow: 3px 3px 10px #97979766;
+}
+
+.loginForm__inputWrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  min-height: inherit;
+}
+
+.loginForm__inputWrapper .userInput {
+  cursor: pointer;
+  width: 70%;
+  min-width: 264px;
+  height: 50px;
+  border-radius: 3px;
+  outline: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  border: none;
+  padding: 10px;
+  margin-bottom: 3rem;
+}
+
 .cart {
   position: relative;
   -webkit-transition: -webkit-transform 150ms ease-in-out;
@@ -1219,10 +1272,12 @@ a:hover {
   transition: all 300ms ease-in-out;
 }
 
-.product:hover {
-  -webkit-transform: scale(1.05);
-          transform: scale(1.05);
-  border: 1px solid #97979733;
+@media (min-width: 64em) {
+  .product:hover {
+    -webkit-transform: scale(1.05);
+            transform: scale(1.05);
+    border: 1px solid #97979733;
+  }
 }
 
 .product__image {
