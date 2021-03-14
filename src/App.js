@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "./App.css";
 import db from "./firebase";
 
+import Login from "./components/Login";
 import Header from "./components/Header";
 import Search from "./components/Search";
 import ProductsFilterContainer from "./components/ProductsFilterContainer";
@@ -40,10 +41,12 @@ function App() {
     <Router>
       <div className="app">
         <Switch>
+          <Route path="/login">
+            <Login />
+          </Route>
           <Route path="/orders">
             <Header />
             <Orders />
-
             <Footer />
           </Route>
 
