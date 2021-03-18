@@ -2,8 +2,19 @@ import React from "react";
 import { NavLink, Link } from "react-router-dom";
 import Cart from "./Cart";
 import logo from "../Images/logo64.png";
+import { useStateValue } from "../StateProvider";
 
 function DesktopMenu() {
+  const [{ user }, dispatch] = useStateValue();
+
+  const logoutHandler = () => {
+    
+    dispatch({
+      type: "LOGOUT",
+      logout: null,
+    });
+  };
+
   return (
     <>
       <div className="header__desktop container container--prl hide-for-mobile">
@@ -28,9 +39,19 @@ function DesktopMenu() {
         <div className="header__desktopRight">
           <Cart />
 
-          <Link className="login" to="/login">
+          {/* <Link className="login" to="/login">
             Login
-          </Link>
+          </Link> */}
+
+          {!user ? (
+            <Link className="login" to="/login">
+              Login
+            </Link>
+          ) : (
+            <Link className="login" to="/" onClick={logoutHandler}>
+              Logout
+            </Link>
+          )}
         </div>
       </div>
     </>

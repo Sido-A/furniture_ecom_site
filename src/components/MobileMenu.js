@@ -1,8 +1,18 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import Cart from "./Cart";
+import { useStateValue } from "../StateProvider";
 
 function MobileMenu({ mobileMenuToggle, isOpen }) {
+  const [{ user }, dispatch] = useStateValue();
+
+  const logoutHandler = () => {
+    dispatch({
+      type: "LOGOUT",
+      logout: null,
+    });
+  };
+
   return (
     <>
       <div className={`overlay ${isOpen ? "open" : "close"}`}></div>
@@ -38,9 +48,19 @@ function MobileMenu({ mobileMenuToggle, isOpen }) {
               </NavLink>
             </li>
             <li>
-              <NavLink exact to="/login" onClick={mobileMenuToggle}>
-                Login
-              </NavLink>
+              {!user ? (
+                <NavLink to="/login" onClick={mobileMenuToggle}>
+                  Login
+                </NavLink>
+              ) : (
+                <NavLink
+                  to="/"
+                  onClick={mobileMenuToggle}
+                  onClick={logoutHandler}
+                >
+                  Logout
+                </NavLink>
+              )}
             </li>
           </ul>
         </div>
