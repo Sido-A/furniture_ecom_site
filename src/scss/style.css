@@ -161,6 +161,73 @@ a:hover {
   transition: transform 300ms ease-in-out, -webkit-transform 300ms ease-in-out;
 }
 
+.userForm {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  min-height: 100vh;
+}
+
+.userForm__container {
+  width: 31.25rem;
+  background-color: #fefefe;
+  border-radius: 5px;
+  min-height: 50vh;
+  -webkit-box-shadow: 6px 6px 20px 2px #97979766;
+          box-shadow: 6px 6px 20px 2px #97979766;
+  padding: 1rem;
+}
+
+.userForm__header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  min-width: 264px;
+  padding: 1rem 1.5rem;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.userForm__inputWrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  min-height: inherit;
+}
+
+.userForm__inputWrapper .userInput {
+  cursor: pointer;
+  width: 70%;
+  min-width: 264px;
+  height: 50px;
+  border-radius: 3px;
+  outline: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  border: 1px solid #00c98d;
+  padding: 10px;
+  margin-bottom: 3rem;
+}
+
 .overlay.close {
   visibility: hidden;
   opacity: 0;
@@ -234,71 +301,6 @@ a:hover {
 .overlay.close {
   -webkit-animation: close 300ms ease-in-out forwards;
           animation: close 300ms ease-in-out forwards;
-}
-
-.loginForm {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  min-height: 100vh;
-}
-
-.loginForm__container {
-  width: 31.25rem;
-  background-color: #979797;
-  border-radius: 5px;
-  min-height: 50vh;
-  -webkit-box-shadow: 3px 3px 10px #97979766;
-          box-shadow: 3px 3px 10px #97979766;
-}
-
-.loginForm__header {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  padding: 1rem 1.5rem;
-  text-transform: uppercase;
-  font-weight: 600;
-}
-
-.loginForm__inputWrapper {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  min-height: inherit;
-}
-
-.loginForm__inputWrapper .userInput {
-  cursor: pointer;
-  width: 70%;
-  min-width: 264px;
-  height: 50px;
-  border-radius: 3px;
-  outline: none;
-  -webkit-box-shadow: none;
-          box-shadow: none;
-  border: none;
-  padding: 10px;
-  margin-bottom: 3rem;
 }
 
 .cart {
@@ -1544,6 +1546,16 @@ a:hover {
 .orders__purchaseButton {
   width: 100%;
   text-align: center;
+}
+
+.orders .overlayLoginForm {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 99999999;
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 .order {

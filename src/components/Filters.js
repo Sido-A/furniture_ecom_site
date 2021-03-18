@@ -2,11 +2,9 @@ import React, { useState, useEffect } from "react";
 import RemoveIcon from "@material-ui/icons/Remove";
 import Filter from "./Filter";
 import PriceRange from "./PriceRange";
-import db from "../firebase";
 import { useStateValue } from "../StateProvider";
 
 function Filters({ changeDetector }) {
-  const [furnitureData, setFurnitureData] = useState([]);
   const [{ initialProducts }, dispatch] = useStateValue();
   const [sliderMinValue, setSliderMinValue] = useState(0);
   const [sliderMaxValue, setSliderMaxValue] = useState(5000);
