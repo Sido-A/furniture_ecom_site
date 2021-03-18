@@ -1,12 +1,26 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useStateValue } from "../StateProvider";
 import Order from "./Order";
+import Login from "./Login";
+
 function Orders() {
-  const [{ cart }, dispatch] = useStateValue();
+  const [{ cart, user }, dispatch] = useStateValue();
+  const [showLoginForm, setShowLoginForm] = useState(false);
+
+  useEffect(() => {
+    console.log("user logged in");
+    setShowLoginForm(false);
+  }, [user]);
 
   const itemOrderedCart = cart.sort((itemA, itemB) => {
     return itemA.itemId - itemB.itemId;
   });
+
+  const isUserLoggedIn = () => {
+    if (!user) {
+      setShowLoginForm(true);
+    }
+  };
 
   return (
     <div className="orders">
@@ -23,9 +37,16 @@ function Orders() {
       )}
       {cart.length !== 0 ? (
         <div className="orders__purchaseButton">
-          <button className="button">Purchase</button>
+          <button className="button" onClick={isUserLoggedIn}>
+            Purchase
+          </button>
         </div>
       ) : null}
+      {showLoginForm && (
+        <div className="overlayLoginForm">
+          <Login />
+        </div>
+      )}
     </div>
   );
 }
