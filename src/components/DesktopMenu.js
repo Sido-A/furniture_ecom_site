@@ -8,13 +8,11 @@ function DesktopMenu() {
   const [{ user }, dispatch] = useStateValue();
 
   const logoutHandler = () => {
-    
     dispatch({
-      type: "LOGOUT",
-      logout: null,
+      type: "LOGOUT_USER",
+      user: null,
     });
   };
-
   return (
     <>
       <div className="header__desktop container container--prl hide-for-mobile">

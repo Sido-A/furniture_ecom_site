@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import Cart from "./Cart";
 import { useStateValue } from "../StateProvider";
@@ -6,10 +6,12 @@ import { useStateValue } from "../StateProvider";
 function MobileMenu({ mobileMenuToggle, isOpen }) {
   const [{ user }, dispatch] = useStateValue();
 
+  // useEffect(() => {}, [user]);
+
   const logoutHandler = () => {
     dispatch({
-      type: "LOGOUT",
-      logout: null,
+      type: "LOGOUT_USER",
+      user: null,
     });
   };
 
