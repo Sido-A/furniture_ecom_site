@@ -13,8 +13,12 @@ function Cart() {
     totalCartItems += cart[i].quantity;
   }
 
+  const toOrdersPage = () => {
+    window.scrollTo(0, 0);
+  };
+
   return (
-    <Link className="cart" to="/orders">
+    <Link className="cart" to="/orders" onClick={toOrdersPage}>
       <img
         src={`${emptyCartButton}`}
         className="cart__icon"
