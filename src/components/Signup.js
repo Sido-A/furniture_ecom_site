@@ -1,7 +1,11 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
+import { useStateValue } from "../StateProvider";
+import db, { auth } from "../firebase";
 
 function Signup() {
+  const [{}, dispatch] = useStateValue();
+  const history = useHistory();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [firstName, setFirstName] = useState("");
@@ -15,6 +19,19 @@ function Signup() {
       email,
       password,
     };
+
+    auth
+      .createUserWithEmailAndPassword(email, password)
+      .then((auth) => {
+        if (auth) {
+          dispatch({
+            type: "LOGIN_USER",
+            user: newUser,
+          });
+          history.push("/");
+        }
+      })
+      .catch((error) => alert(error.message));
   };
 
   return (

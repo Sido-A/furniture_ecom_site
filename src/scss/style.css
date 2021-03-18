@@ -1544,12 +1544,52 @@ a:hover {
 }
 
 .orders__purchaseButton {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   width: 100%;
-  text-align: center;
+}
+
+@media (min-width: 64em) {
+  .orders__purchaseButton {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    width: 50%;
+    text-align: center;
+  }
+}
+
+.orders .allSum {
+  font-size: 1.5rem;
+  font-weight: 800;
+}
+
+@media (max-width: 63.9375em) {
+  .orders .allSum {
+    margin-bottom: 1rem;
+  }
 }
 
 .orders .overlayLoginForm {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;

@@ -1,16 +1,17 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory, useLocation } from "react-router-dom";
 import { useStateValue } from "../StateProvider";
 import { auth, provider } from "../firebase";
 
 function Login() {
   const [{ user, product, cart }, dispatch] = useStateValue();
+  const history = useHistory();
+  const location = useLocation();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  console.log(cart);
+
   const signInWithGoogle = (e) => {
     e.preventDefault();
-
     auth
       .signInWithPopup(provider)
       .then((result) => {
@@ -19,6 +20,9 @@ function Login() {
           user: result.user,
           product,
         });
+        if (location.pathname === "/login") {
+          history.push("/");
+        }
       })
       .catch((err) => {
         alert(err);
@@ -34,6 +38,9 @@ function Login() {
           type: "LOGIN_USER",
           user: result.user,
         });
+        if (location.pathname === "/login") {
+          history.push("/");
+        }
       })
       .catch((err) => {
         alert(err);

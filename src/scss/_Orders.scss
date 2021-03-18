@@ -27,12 +27,32 @@
   }
 
   &__purchaseButton {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     width: 100%;
-    text-align: center;
+    
+    @include breakpoint-bigger-than(large){
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      width: 50%;
+      text-align: center;
+  }
+}
+
+.allSum{
+  font-size: 1.5rem;
+  font-weight: 800;
+
+  @include breakpoint-smaller-than(medium){
+    margin-bottom: 1rem;
+  }
 }
 
 .overlayLoginForm{
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     right: 0;
