@@ -12,11 +12,28 @@ function Orders() {
   const [cartTotal, setCartTotal] = useState(0);
 
   useEffect(() => {
-    console.log("user logged in");
     setShowLoginForm(false);
   }, [user]);
 
-  // useEffect(() => {}, [cart]);
+  useEffect(() => {
+    if (cart.length === 0) {
+      setCartTotal(0);
+    } else if (cart.length === 1) {
+      const totalPriceForOneCartLength = parseInt(
+        cart[0].price * cart[0].quantity
+      );
+      setCartTotal(totalPriceForOneCartLength);
+    } else {
+      const itemsTotalPrice = cart.reduce((acc, current) => {
+        return (
+          parseInt(acc.price * acc.quantity) +
+          parseInt(current.price * current.quantity)
+        );
+      });
+
+      setCartTotal(itemsTotalPrice);
+    }
+  }, [cart]);
 
   const itemOrderedCart = cart.sort((itemA, itemB) => {
     return itemA.itemId - itemB.itemId;
@@ -45,7 +62,7 @@ function Orders() {
       )}
       {cart.length !== 0 ? (
         <div className="orders__purchaseButton container">
-          <p className="allSum">Total:£</p>
+          <p className="allSum">Total:£ {cartTotal}</p>
 
           <button className="button" onClick={isUserLoggedIn}>
             Purchase
