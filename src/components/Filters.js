@@ -118,7 +118,7 @@ function Filters({ changeDetector }) {
             {isMobileFilterMenuOpen ? (
               <div
                 onClick={filterToggle}
-                className={`${isMobileFilterMenuOpen ? "minus" : "plus"} `}
+                className={`${isMobileFilterMenuOpen ? "apply" : "plus"} `}
               >
                 Apply
               </div>
