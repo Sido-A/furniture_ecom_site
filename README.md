@@ -22,6 +22,14 @@ This project has been made using React and Firebase
 
 ## `Functionality`
 
+- Login
+   - Login with Google account
+   - Login with Email / Password that user set
+
+- Sign up
+  - Sign up with Email / Password
+  - User cannot login with existing email address
+
 - Products can be filtered three ways:
   - Color
   - Category
