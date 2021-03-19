@@ -27,6 +27,7 @@ const reducer = (state, action) => {
         cart: [],
         user: action.user,
       };
+
     case "ADD_TO_CART":
       let selectedProductNewObj = {};
       if (state.cart.length !== 0) {

@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
-
 import { useStateValue } from "../StateProvider";
+import db, { auth } from "../firebase";
+
 import Order from "./Order";
 import Login from "./Login";
 
@@ -43,6 +44,22 @@ function Orders() {
     if (!user) {
       setShowLoginForm(true);
     } else {
+      console.log("thanks", auth.currentUser.uid);
+      const userId = auth.currentUser.uid;
+      db.collection("users")
+        .doc(userId)
+        .set({
+          id: userId,
+          displayName: user.displayName,
+          email: user.email,
+          purchased: cart,
+        })
+        .then(() => {
+          console.log("Document successfully written!");
+        })
+        .catch((error) => {
+          console.error("Error writing document: ", error);
+        });
       history.push("/purchased");
     }
   };

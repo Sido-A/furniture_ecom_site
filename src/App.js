@@ -23,7 +23,7 @@ function App() {
     setChange(!change);
   };
 
-  console.log(user);
+  console.log("user", user);
   useEffect(() => {
     db.collection("furnitures")
       .get()

@@ -59,7 +59,7 @@ function Login() {
           </span>
         </div>
 
-        <div className="loginForm__inputWrapper userForm__inputWrapper">
+        <form className="loginForm__inputWrapper userForm__inputWrapper">
           <input
             id="email"
             className="userInput"
@@ -85,7 +85,7 @@ function Login() {
           <button type="submit" className="button" onClick={signInWithGoogle}>
             Login with Google
           </button>
-        </div>
+        </form>
       </div>
     </div>
   );

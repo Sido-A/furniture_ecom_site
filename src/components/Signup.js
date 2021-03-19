@@ -15,7 +15,7 @@ function Signup() {
     e.preventDefault();
 
     const newUser = {
-      name: `${firstName} ${lastName}`,
+      displayName: `${firstName} ${lastName}`,
       email,
       password,
     };
@@ -46,7 +46,7 @@ function Signup() {
           </span>
         </div>
 
-        <div className="signup__inputWrapper userForm__inputWrapper">
+        <form className="signup__inputWrapper userForm__inputWrapper">
           <input
             id="firstName"
             name="firstname"
@@ -89,7 +89,7 @@ function Signup() {
           <button type="submit" className="button" onClick={register}>
             Sign up
           </button>
-        </div>
+        </form>
       </div>
     </div>
   );
