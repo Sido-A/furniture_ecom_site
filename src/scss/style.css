@@ -1714,7 +1714,7 @@ a:hover {
   /* OBJECTS */
 }
 
-.purchased h1 {
+.purchased__typoGraph {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1724,10 +1724,24 @@ a:hover {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   min-height: 100vh;
+}
+
+.purchased__typoGraph h1 {
   font-size: 5vw;
   color: #00c98d;
-  text-shadow: 5px 5px 0 #131313;
+  text-shadow: 3px 3px 0 #131313;
+  margin-bottom: 3rem;
+}
+
+@media (min-width: 40em) {
+  .purchased__typoGraph h1 {
+    text-shadow: 5px 5px 0 #131313;
+  }
 }
 
 .purchased__background-wrap {

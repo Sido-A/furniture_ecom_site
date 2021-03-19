@@ -4,7 +4,7 @@ import { useStateValue } from "../StateProvider";
 import { auth, provider } from "../firebase";
 
 function Login() {
-  const [{ user, product, cart }, dispatch] = useStateValue();
+  const [{ product }, dispatch] = useStateValue();
   const history = useHistory();
   const location = useLocation();
   const [email, setEmail] = useState("");

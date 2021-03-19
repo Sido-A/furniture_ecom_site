@@ -1,17 +1,26 @@
 .purchased{
     min-height: 100vh;
-    h1{
+    &__typoGraph{
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
     min-height: 100vh;
-    font-size: 5vw;
-    color: $lightGreen;
-    text-shadow: 5px 5px 0 $darkBlack;
+   
+    h1{
+        font-size: 5vw;
+        color: $lightGreen;
+        text-shadow: 3px 3px 0 $darkBlack;
+        margin-bottom: 3rem;
+        @include breakpoint-bigger-than(medium){
+        text-shadow: 5px 5px 0 $darkBlack;
+        }
+    }
+    
 
     }
 
-    &__background-wrap {
+    &__background-wrap {    
     bottom: 0;
 	left: 0;
 	position: fixed;

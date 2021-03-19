@@ -44,15 +44,17 @@ function Orders() {
     if (!user) {
       setShowLoginForm(true);
     } else {
-      console.log("thanks", auth.currentUser.uid);
       const userId = auth.currentUser.uid;
+      const currentDateTime = new Date();
+      console.log(currentDateTime);
+      const purchasedDate = "purchased: " + [currentDateTime];
       db.collection("users")
         .doc(userId)
         .set({
           id: userId,
           displayName: user.displayName,
           email: user.email,
-          purchased: cart,
+          [purchasedDate]: cart,  
         })
         .then(() => {
           console.log("Document successfully written!");
@@ -81,7 +83,7 @@ function Orders() {
         <div className="orders__purchaseButton container">
           <p className="allSum">Total:£ {cartTotal}</p>
 
-          <button className="button" onClick={isUserLoggedIn}>
+          <button className="button" onClick={isUserLoggedIn} >
             Purchase
           </button>
         </div>

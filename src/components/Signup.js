@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { useStateValue } from "../StateProvider";
-import db, { auth } from "../firebase";
+import { auth } from "../firebase";
 
 function Signup() {
   const [{}, dispatch] = useStateValue();
@@ -13,7 +13,6 @@ function Signup() {
 
   const register = (e) => {
     e.preventDefault();
-
     const newUser = {
       displayName: `${firstName} ${lastName}`,
       email,

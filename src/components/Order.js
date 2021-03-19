@@ -9,7 +9,6 @@ function Order({ cartItem }) {
   const [itemQuantity, setItemQuantity] = useState(cartItem.quantity);
 
   const addItem = () => {
-    // setItemQuantity(itemQuantity + 1);
     dispatch({
       type: "ADD_TO_CART",
       selectedProduct: cartItem,
@@ -18,7 +17,6 @@ function Order({ cartItem }) {
 
   const removeItem = () => {
     if (cartItem.quantity !== 0) {
-      // setItemQuantity(itemQuantity - 1);
       dispatch({
         type: "SUBTRACT_FROM_CART",
         selectedProduct: cartItem,

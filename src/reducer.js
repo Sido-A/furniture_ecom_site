@@ -380,6 +380,12 @@ const reducer = (state, action) => {
         ...state,
         productDetail: action.selectedProduct,
       };
+
+    case "PURCHASED_EMPTY_CART":
+      return {
+        ...state,
+        cart: [],
+      };
     default:
       return state;
   }
