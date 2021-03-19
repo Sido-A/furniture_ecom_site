@@ -116,10 +116,12 @@ function Filters({ changeDetector }) {
             <p>Filter by</p>
 
             {isMobileFilterMenuOpen ? (
-              <RemoveIcon
+              <div
                 onClick={filterToggle}
                 className={`${isMobileFilterMenuOpen ? "minus" : "plus"} `}
-              />
+              >
+                Apply
+              </div>
             ) : null}
           </div>
 
