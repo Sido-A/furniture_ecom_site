@@ -7,15 +7,18 @@ This project has been made using React and Firebase
 ## `Pages`
 
 - Desktop
-
-  - Main
+  - Login / Sign up page
+  - Main page
   - Product Listing Page
   - Product Details Page
+  - Cart items
 
 - Mobile
-  - Main
+  - Login / Sign up page
+  - Main page
   - Product Listing Page
   - Product Details Page
+  - Cart items page
 
 ## `Functionality`
 
@@ -33,4 +36,9 @@ This project has been made using React and Firebase
 
 > Selecting a sort option update the list of products in real time
 
-- Add items the cart
+- Add items to the cart from the product page
+  - cart items updates in real time
+
+- Add / remove items inside the cart
+  - Add one item per click with PLUS icon
+  - Remove one item per click with MINUS icon
